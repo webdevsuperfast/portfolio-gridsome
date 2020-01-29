@@ -6,7 +6,7 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -b master -d dist"
+    "deploy": "gh-pages -b master -d dist -r 'git@github.com:webdevsuperfast/webdevsuperfast.github.io.git'"
   },
   "dependencies": {
     "axios": "^0.19.2",
