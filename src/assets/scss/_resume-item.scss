@@ -428,6 +428,7 @@ section.resume-section {
 
 // Homepage
 #section-home {
+  display: none !important;
   h1 {
     @include media-breakpoint-up(sm) {
       @include pixel-rem(60, 71);
@@ -469,11 +470,10 @@ section.resume-section {
   #sideNav {
     width: 100vw;
   }
-  .container-fluid {
-    display: none;
-  }
   .position {
-    @include pixel-rem(24,24);
+    @include media-breakpoint-up(sm) {
+      @include pixel-rem(24,24);
+    }
     .position-name {
       display: inline-block;
       padding: 0 10px;
