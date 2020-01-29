@@ -44,6 +44,25 @@
                 id="email-live-feedback"
               >Field is required and email must be a valid email.</b-form-invalid-feedback>
             </b-col>
+            <b-col lg="6" class="form-group">
+              <b-form-select v-model.trim="$v.form.service.$model">
+                <template v-slot:first>
+                  <b-form-select-option :value="null">Service you're interested in?</b-form-select-option>
+                  <b-form-select-option v-for="{ node } in $page.allPortfolioCategory.edges" :key="node.id" :value="node.slug">{{node.title}}</b-form-select-option>
+                </template>
+              </b-form-select>
+            </b-col>
+            <b-col lg="6" class="form-group">
+              <b-form-input
+                v-model.trim="$v.form.website.$model"
+                type="url"
+                class="form-control"
+                placeholder="Website"
+                name="website"
+                aria-describedby="website-live-feedback"
+                :state="$v.form.website.$dirty ? !$v.form.website.$error : null"
+              ></b-form-input>
+            </b-col>
             <b-col lg="12" class="form-group">
               <b-form-input
                 v-model.trim="$v.form.subject.$model"
@@ -90,6 +109,19 @@
   </Layout>
 </template>
 
+<page-query>
+{
+  allPortfolioCategory {
+    edges {
+      node {
+        id,
+        title,
+        slug
+      }
+    }
+  }
+}
+</page-query>
 <script>
 import Main from "@/layouts/Main";
 
@@ -109,6 +141,8 @@ export default {
       form: {
         name: "",
         email: "",
+        service: null,
+        website: "",
         subject: "",
         message: ""
       },
@@ -126,6 +160,8 @@ export default {
         required,
         email
       },
+      service: {},
+      website: {},
       subject: {},
       message: {
         required
