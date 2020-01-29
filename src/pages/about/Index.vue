@@ -6,11 +6,32 @@
         <p
           class="lead"
         >I’m a web developer, a self-proclaimed introvert and a *NIX enthusiast.</p>
+        <b-dropdown split text="Follow Me" class="mr-2 mb-0">
+          <b-dropdown-item v-for="{node} in $page.allSocial.edges" :key="node.id" :href="node.url">
+            {{ node.name }}
+          </b-dropdown-item>
+        </b-dropdown>
         <b-button variant="outline-success" to="/contact">Hire Me</b-button>
       </About>
     </Main>
   </Layout>
 </template>
+
+<page-query>
+{
+  allSocial {
+    edges {
+      node {
+        id,
+        name,
+        url,
+        title,
+        icon
+      }
+    }
+  }
+}
+</page-query>
 
 <script>
 import Main from "@/layouts/Main";
@@ -23,7 +44,7 @@ export default {
     }
   },
   metaInfo: {
-    title: 'About Us'
+    title: 'About Me'
   },
   components: {
     Main,
