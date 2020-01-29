@@ -1,0 +1,67 @@
+// Variables
+
+$primary:#222222 !default;
+$secondary:#666666 !default;
+$success:#333333 !default;
+$danger:#434343 !default;
+$info:#515151 !default;
+$warning:#5f5f5f !default;
+$light:#eceeec !default;
+$dark:#111111 !default;
+
+$border-radius: 0px;
+$border-radius-lg: $border-radius;
+
+$grid-gutter-width: 20px;
+
+// Fonts
+// $font-size-base: 0.625rem;
+
+// Buttons
+$btn-border-radius: 0;
+$btn-padding-y: px-to-rem(13px);
+$btn-padding-x: px-to-rem(30px);
+$btn-font-size: px-to-rem(21px);
+$btn-line-height: px-to-rem(21px);
+$btn-border-width: 2px;
+$btn-border-radius-sm: 0;
+
+// Page Variables
+
+$sidebar-base-width: 50vw;
+
+// Jumbotron
+
+$jumbotron-padding: 60px;
+$jumbotron-color: $light;
+$jumbotron-bg: rgba($primary, 0);
+
+// Forms
+
+$input-padding-y: px-to-rem(15px);
+$input-padding-x: px-to-rem(15px);
+$input-font-size: px-to-rem(15px);
+$input-font-weight: 300;
+$input-line-height: 1.2;
+$input-height-inner: px-to-rem(50px); 
+$input-font-size-lg: px-to-rem(15px);
+
+$input-padding-y-lg: $input-padding-y;
+$input-padding-x-lg: $input-padding-x;
+$input-font-size-lg: $input-font-size;
+$input-line-height-lg: $input-line-height;
+
+$input-bg: $light;
+$input-color: $primary;
+$input-border-color: $light;
+
+$form-group-margin-bottom: px-to-rem(20px);
+
+// Navbar Toggler
+$navbar-toggler-padding-y: 0rem;
+$navbar-toggler-padding-x: 0rem;
+$navbar-toggler-border-radius: 0;
+
+// Links
+$link-hover-decoration: none;
+$link-hover-color: $secondary;

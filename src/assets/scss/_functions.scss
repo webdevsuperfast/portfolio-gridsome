@@ -1,0 +1,13 @@
+//  Pixel to REM
+// @link https://teamtreehouse.com/community/creating-pxtorem-conversion-using-function
+@function px-to-rem ($target, $context: 16px) {
+  @return ($target / $context) * 1rem;
+} 
+
+@function strip($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

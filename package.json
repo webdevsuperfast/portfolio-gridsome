@@ -1,0 +1,26 @@
+{
+  "name": "mydevhouse-vue",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -b master -d dist"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap-vue": "^2.2.0",
+    "gh-pages": "^2.2.0",
+    "gridsome": "^0.7.12",
+    "typeface-cabin": "^0.0.72",
+    "typeface-roboto-condensed": "^0.0.75",
+    "vue2-animate": "^2.1.3",
+    "vuelidate": "^0.7.4"
+  },
+  "devDependencies": {
+    "sass": "^1.24.4",
+    "sass-loader": "^8.0.1",
+    "vue-feather-icons": "^5.0.0"
+  }
+}
