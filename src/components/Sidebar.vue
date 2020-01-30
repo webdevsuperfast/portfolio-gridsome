@@ -4,7 +4,7 @@
       <div class="logo m-auto" v-if="title == 'Home'">
         <g-image class="img-fluid mb-0" src="~/images/logo.svg" alt="Rotsen Mark Acob" />
         <h1 class="text-light mb-0">Rotsen Mark Acob</h1>
-        <div class="position text-light subheading">
+        <div class="position text-light text-uppercase">
           <span class="position-name">Web Developer</span>
           <span class="position-name">WordPress Developer</span>
           <span class="position-name">Freelancer</span>
