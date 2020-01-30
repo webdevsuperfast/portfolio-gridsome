@@ -17,7 +17,8 @@
       split-variant="outline-primary"
     >
       <b-dropdown-item to="/about/experience">Experience</b-dropdown-item>
-      <b-dropdown-item to="/about/abilities">Abilities</b-dropdown-item>
+      <b-dropdown-item to="/about/skills">Skills</b-dropdown-item>
+      <b-dropdown-item to="/about/tools">Tools</b-dropdown-item>
     </b-dropdown>
   </div>
 </template>
