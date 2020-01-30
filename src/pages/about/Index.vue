@@ -6,7 +6,7 @@
         <p
           class="lead"
         >I’m a web developer, a self-proclaimed introvert and a *NIX enthusiast.</p>
-        <b-dropdown split text="Follow Me" class="mr-2 mb-0">
+        <b-dropdown split text="Social Links" class="mr-2 mb-0">
           <b-dropdown-item v-for="{node} in $page.allSocial.edges" :key="node.id" :href="node.url">
             {{ node.name }}
           </b-dropdown-item>
