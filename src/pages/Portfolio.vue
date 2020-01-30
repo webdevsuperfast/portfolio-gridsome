@@ -46,7 +46,7 @@
                   <div class="portfolio-information d-flex flex-column flex-md-row justify-content-between">
                     <div class="portfolio-name mb-0 text-uppercase">{{ node.title }}</div>
                     <div class="portfolio-link mb-0 text-uppercase text-light">
-                      <g-link  v-if="node.website" :href="node.website">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
+                      <g-link  v-if="node.website" :href="node.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
                     </div>
                   </div>
                   <b-button
@@ -140,17 +140,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.portfolio-link {
-  a {
-    display: flex;
-    align-items: center;
-    color: #eceeec;
-    transition: color .2s ease-in-out;
-    &:hover {
-      color: #666;
-    }
-  }
-}
-</style>
