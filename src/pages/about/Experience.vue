@@ -10,8 +10,8 @@
             :key="index"
           >
             <div class="resume-content">
-              <h4 class="mb-0">{{ node.position }}</h4>
-              <div class="subheading mb-0 text-muted">{{ node.company }}</div>
+              <h4 class="mb-0">{{ node.position }}, <span class="text-muted">{{ node.company }}</span></h4>
+              <!-- <div class="subheading mb-0 text-muted">{{ node.company }}</div> -->
               <div class="resume-date mb-3">
                 <p
                   class="text-muted"
@@ -90,6 +90,11 @@ export default {
     li {
       display: block;
       padding-left: 0;
+    }
+  }
+  h4 {
+    span {
+      font-weight: 400;
     }
   }
 </style>
