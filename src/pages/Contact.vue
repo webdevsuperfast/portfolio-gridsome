@@ -4,7 +4,7 @@
       <div class="w-100">
         <h2>Get In Touch</h2>
         <p
-          class="lead"
+          class="lead mb-4"
         >Thanks for dropping by. Send me an information about your project so I can determine how can I help you.</p>
         <b-form
           @submit.prevent="handleSubmit"
