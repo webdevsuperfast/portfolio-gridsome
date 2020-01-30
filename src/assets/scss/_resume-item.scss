@@ -179,6 +179,18 @@ section.resume-section {
       width: calc(100%);
       padding: 30px 60px;
       background: rgba($light, 0.25);
+      .portfolio-link {
+        a {
+          display: flex;
+          align-items: center;
+          color: #eceeec;
+          transition: color .2s ease-in-out;
+          justify-content: center;
+          &:hover {
+            color: $secondary;
+          }
+        }
+      }
     }
   }
 }
@@ -276,8 +288,9 @@ section.resume-section {
 
 // About Page
 #section-about,
-#section-our-process,
-#section-our-team {
+#section-skills,
+#section-tools,
+#section-experience {
   flex-direction: column;
   .nav-link, .dropdown {
     @include pixel-rem(18, 24);

@@ -2,14 +2,7 @@
 
 body {
   @include body-font;
-  font-weight: 300;
-  padding-top: 66px;
-}
-@include media-breakpoint-up(lg) {
-  body {
-    padding-top: 0;
-    // padding-left: $sidebar-base-width;
-  }
+  font-weight: 400;
 }
 
 h1,
