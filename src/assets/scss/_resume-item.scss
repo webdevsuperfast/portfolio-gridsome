@@ -512,3 +512,9 @@ section.resume-section {
     }
   }
 }
+
+// Thank You Page / Error Page
+#section-thank-you,
+#section-error {
+  flex-direction: row;
+}
