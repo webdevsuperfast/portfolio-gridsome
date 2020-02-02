@@ -18,9 +18,10 @@ $grid-gutter-width: 20px;
 // $font-size-base: 0.625rem;
 
 // Buttons
+$btn-font-family: "Roboto Condensed", sans-serif;
 $btn-border-radius: 0;
-$btn-padding-y: px-to-rem(13px);
-$btn-padding-x: px-to-rem(30px);
+$btn-padding-y: px-to-rem(10px);
+$btn-padding-x: px-to-rem(20px);
 $btn-font-size: px-to-rem(21px);
 $btn-line-height: px-to-rem(21px);
 $btn-border-width: 2px;
