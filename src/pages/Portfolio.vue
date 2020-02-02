@@ -25,8 +25,8 @@
             cols="6"
             sm="4"
             md="4"
-            lg="4"
-            xl="4"
+            lg="3"
+            xl="3"
             :class="['portfolio', `portfolio-${node.id}`]"
             v-for="{ node } in filterPortfolio"
             :key="node.id"
@@ -34,7 +34,7 @@
           >
             <figure>
               <g-image
-                class="img-fluid portfolio-image"
+                class="img-fluid portfolio-image mb-2"
                 :src="node.thumbnail"
               />
               <figcaption class="portfolio-content">
@@ -85,7 +85,7 @@
       }
     }
   }
-  allPortfolioCategory {
+  allPortfolioCategory(sortBy: "slug", order: ASC) {
     edges {
       node {
         id,
