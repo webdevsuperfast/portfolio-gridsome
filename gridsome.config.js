@@ -8,5 +8,12 @@ module.exports = {
   siteName: 'Rotsen Mark Acob',
   siteDescription: 'Web Developer, Frontend Developer and Freelancer',
   siteUrl: 'https://webdevsuperfast.github.io',
-  plugins: []
+  plugins: [],
+  chainWebpack: config => {
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
+    svgRule
+      .use('vue-svg-loader')
+      .loader('vue-svg-loader')
+  }
 }
