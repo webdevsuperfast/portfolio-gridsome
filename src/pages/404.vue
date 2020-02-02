@@ -11,7 +11,6 @@
 
 <script>
 import Main from "@/layouts/Main";
-import About from "@/layouts/About";
 
 export default {
   data() {
