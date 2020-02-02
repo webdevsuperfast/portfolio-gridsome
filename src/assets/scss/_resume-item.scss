@@ -441,19 +441,19 @@ section.resume-section {
 
 // Homepage
 #section-home {
-  display: none !important;
-  h1 {
-    @include media-breakpoint-up(sm) {
-      @include pixel-rem(60, 71);
+  flex-direction: row;
+  p {
+    &.lead {
+      @include pixel-rem(36, 42);
+      margin-bottom: 30px;
     }
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 15px;
   }
-  .subheading {
-    @include pixel-rem(21, 25);
-    font-weight: 300;
-    margin-bottom: 15px;
+  .social-links {
+    margin-bottom: 10px;
+    @include media-breakpoint-up(sm) {
+      margin-right: 10px;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -470,44 +470,6 @@ section.resume-section {
   }
   svg {
     stroke-width: 1px;
-  }
-}
-
-.home {
-  .navbar {
-    width: 100vw;
-  }
-  .site-inner {
-    padding-left: 0;
-  }
-  #sideNav {
-    width: 100vw;
-  }
-  .position {
-    @include pixel-rem(24,24);
-    .position-name {
-      display: inline-block;
-      padding: 0 10px;
-      position: relative;
-      &:before {
-        content: '';
-        width: 4px;
-        height: 4px;
-        background-color: $light;
-        display: block;
-        border-radius: 50%;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        margin-top: -2px;
-        margin-left: -2px;
-      }
-      &:first-child {
-        &:before {
-          display: none;
-        }
-      }
-    }
   }
 }
 
