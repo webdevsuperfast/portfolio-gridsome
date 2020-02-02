@@ -2,7 +2,7 @@
   <Layout sidebar="true" :title="pageTitle">
     <Main>
       <div class="w-100">
-        <h2>Get In Touch</h2>
+        <h2>Let's Talk</h2>
         <p
           class="lead mb-4"
         >Thanks for dropping by. Send me an information about your project so I can determine how can I help you.</p>
@@ -81,7 +81,7 @@
                 cols="80"
                 rows="10"
                 class="form-control form-control-lg"
-                placeholder="Project Details"
+                placeholder="Tell me more about your project"
                 aria-describedby="message-live-feedback"
                 :state="$v.form.message.$dirty ? !$v.form.message.$error : null"
               ></b-form-textarea>
@@ -92,7 +92,7 @@
                 type="submit"
                 :disabled="submitStatus === 'PENDING'"
                 variant="outline-primary"
-              >Send Inquiry</b-button>
+              >Submit</b-button>
             </b-col>
             <b-col lg="12" class="text-center">
               <b-alert :show="submitStatus === 'OK'" variant="success">Thanks for your submission!</b-alert>
