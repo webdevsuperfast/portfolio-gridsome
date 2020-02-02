@@ -48,8 +48,8 @@
               <b-form-select v-model.trim="$v.form.service.$model">
                 <template v-slot:first>
                   <b-form-select-option :value="null">Service you're interested in?</b-form-select-option>
-                  <b-form-select-option v-for="{ node } in $page.allPortfolioCategory.edges" :key="node.id" :value="node.slug">{{node.title}}</b-form-select-option>
                 </template>
+                <b-form-select-option v-for="{ node } in $page.allPortfolioCategory.edges" :key="node.id" :value="node.slug">{{node.title}}</b-form-select-option>
               </b-form-select>
             </b-col>
             <b-col lg="6" class="form-group">
@@ -79,9 +79,9 @@
                 v-model.trim="$v.form.message.$model"
                 name="message"
                 cols="80"
-                rows="4"
+                rows="10"
                 class="form-control form-control-lg"
-                placeholder="Your Message"
+                placeholder="Project Details"
                 aria-describedby="message-live-feedback"
                 :state="$v.form.message.$dirty ? !$v.form.message.$error : null"
               ></b-form-textarea>
@@ -92,7 +92,7 @@
                 type="submit"
                 :disabled="submitStatus === 'PENDING'"
                 variant="outline-primary"
-              >Send Message</b-button>
+              >Send Inquiry</b-button>
             </b-col>
             <b-col lg="12" class="text-center">
               <b-alert :show="submitStatus === 'OK'" variant="success">Thanks for your submission!</b-alert>
@@ -111,7 +111,7 @@
 
 <page-query>
 {
-  allPortfolioCategory {
+  allPortfolioCategory(sortBy: "slug", order: ASC) {
     edges {
       node {
         id,
