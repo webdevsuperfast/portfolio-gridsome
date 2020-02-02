@@ -484,9 +484,7 @@ section.resume-section {
     width: 100vw;
   }
   .position {
-    @include media-breakpoint-up(sm) {
-      @include pixel-rem(24,24);
-    }
+    @include pixel-rem(24,24);
     .position-name {
       display: inline-block;
       padding: 0 10px;
