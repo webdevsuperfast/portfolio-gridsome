@@ -9,6 +9,7 @@
     <b-navbar-brand to="/">
       <g-image src="~/images/logo.svg" width="40" height="40" alt="MyDevHouse" class="d-lg-none" />
     </b-navbar-brand>
+    <b-button variant="outline-light" size="md" class="mr-4 ml-auto" to="#">Resume</b-button>
     <b-button
       :class="['hamburger navbar-toggle', 'x', `${ visible ? 'active' : '' }`]"
       id="hamburger-1"
@@ -30,7 +31,18 @@
           exact-active-class="active"
           @click="visible = false"
         >{{ navigation.name }}</b-nav-item>
-        <b-nav-item to="/about/" exact exact-active-class="active" @click="visible = false">About</b-nav-item>
+        <b-nav-item
+          to="/experience/"
+          exact
+          exact-active-class="active"
+          @click="visible = false"
+        >Experience</b-nav-item>
+        <b-nav-item
+          to="/abilities/"
+          exact
+          exact-active-class="active"
+          @click="visible = false"
+        >Abilities</b-nav-item>
         <b-nav-item
           to="/portfolio/"
           exact
