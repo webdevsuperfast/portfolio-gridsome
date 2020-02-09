@@ -40,15 +40,7 @@ import Sidebar from "@/components/Sidebar";
 export default {
   data() {
     return {
-      pageTitle: "Home",
-      index: 0,
-      rotated: false,
-      headlines: [
-        'Web Developer',
-        'Frontend Developer',
-        'Freelancer',
-        'Logician'
-      ]
+      pageTitle: "Home"
     }
   },
   metaInfo: {
@@ -62,21 +54,6 @@ export default {
     Aside,
     Main,
     Sidebar
-  },
-  methods: {
-    rotateText: function() {
-      setTimeout(() => {
-        this.index += 1;
-        if ( this.index >= this.headlines.length) {
-          this.index = 0;
-        }
-        this.rotateText();
-      }, 3000);
-    }
-  },
-  mounted() {
-    this.rotateText();
-    this.rotated = true;
   }
 }
 </script>
