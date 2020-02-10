@@ -87,7 +87,7 @@ module.exports = function (api) {
   })
 
   api.loadSource( async actions => {
-    const { data } = await axios.get('http://localhost:3000/social');
+    const { data } = await axios.get(httpServer + '/social');
     const social = actions.addCollection('Social');
 
     for( const item of data ) {
