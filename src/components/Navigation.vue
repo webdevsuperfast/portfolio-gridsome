@@ -7,7 +7,7 @@
     :class="`${visible == true ? 'bg-primary' : ''}`"
   >
     <b-navbar-brand to="/">
-      <g-image src="~/images/logo.svg" width="75" alt="MyDevHouse" class="d-lg-none" />
+      <g-image src="~/images/logo.svg" width="75" :alt="$static.metadata.siteName" class="d-lg-none" />
     </b-navbar-brand>
     <b-button variant="outline-light" size="md" class="mr-4 ml-auto" href="https://drive.google.com/file/d/1ydxEniaVfuIeyUb7oPKUnLuv1jUGUEpT/view?usp=sharing" target="_blank">Resume</b-button>
     <b-button
@@ -65,6 +65,14 @@
     </b-collapse>
   </b-navbar>
 </template>
+
+<static-query>
+query {
+  metadata {
+    siteName
+  }
+}
+</static-query>
 
 <script>
 export default {
