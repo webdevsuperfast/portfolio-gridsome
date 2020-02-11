@@ -24,9 +24,10 @@ h1 {
   &.page-title {
     color: $light;
     border: 5px solid $light;
-    padding: px-to-rem(18px) px-to-rem(33px);
+    padding: px-to-rem(18px) px-to-rem(40px);
     display: inline-block;
     margin-bottom: 0;
+    border-radius: 65px;
   }
 }
 

@@ -9,7 +9,7 @@ $warning:#5f5f5f !default;
 $light:#eceeec !default;
 $dark:#111111 !default;
 
-$border-radius: 0px;
+$border-radius: 25px;
 $border-radius-lg: $border-radius;
 
 $grid-gutter-width: 20px;
@@ -19,7 +19,7 @@ $grid-gutter-width: 20px;
 
 // Buttons
 $btn-font-family: "Roboto Condensed", sans-serif;
-$btn-border-radius: 0;
+$btn-border-radius: 25px;
 $btn-padding-y: px-to-rem(10px);
 $btn-padding-x: px-to-rem(20px);
 $btn-font-size: px-to-rem(21px);
