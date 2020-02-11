@@ -33,4 +33,14 @@ export default function (Vue, { router, head, isClient }) {
       .replace(/^-+/, '')             // Trim - from start of text
       .replace(/-+$/, '');            // Trim - from end of text
   })
+
+  Vue.filter('rating', (value) => {
+    if (!value) {
+      value = 0;
+    }
+
+    value = value / 20;
+
+    return value;
+  })
 }
