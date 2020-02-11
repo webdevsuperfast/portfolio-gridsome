@@ -478,3 +478,19 @@ section.resume-section {
 #section-error {
   flex-direction: row;
 }
+
+#section-abilities {
+  .skill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+  .vue-star-rating {
+    margin-left: auto;
+    line-height: 0;
+    .vue-star-rating-star {
+      line-height: 0;
+    }
+  }
+}
