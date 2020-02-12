@@ -484,7 +484,15 @@ section.resume-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    transition: all 200ms ease-in-out;
+    &:hover {
+      cursor: pointer;
+      padding: 0 2px;
+      background: $light;
+    }
+    @include media-breakpoint-up(lg) {
+      font-size: 0.8rem;
+    }
   }
   .vue-star-rating {
     margin-left: auto;
