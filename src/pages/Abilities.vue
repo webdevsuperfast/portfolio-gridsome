@@ -4,9 +4,9 @@
       <div class="w-100">
         <h2 class="section-title">Skills</h2>
         <b-row class="skill-section row mb-5">
-          <b-col v-for="{ node } in $page.allSkills.edges" :key="node.id" cols=6>
+          <b-col v-for="{ node } in $page.allSkills.edges" :key="node.id" cols="12" sm="6">
             <p class="mb-0 text-uppercase skill">{{ node.name }} 
-              <star-rating :rating="node.value | rating" :increment="0.5" read-only :star-size="16" :show-rating="false" inactive-color="#eceeec" active-color="#222222" inline />
+              <star-rating :rating="node.value | rating" :increment="0.5" read-only :star-size="12" :show-rating="false" inactive-color="#eceeec" active-color="#222222" inline />
             </p>
           </b-col>
         </b-row>
@@ -14,9 +14,9 @@
       <div class="w-100">
         <h2 class="section-title">Tools</h2>
         <b-row class="skill-section row mb-5">
-          <b-col v-for="{ node } in $page.allTools.edges" :key="node.id" cols=6>
+          <b-col v-for="{ node } in $page.allTools.edges" :key="node.id" cols="12" sm="6">
             <p class="mb-0 text-uppercase skill">{{ node.name }} 
-              <star-rating :rating="node.value | rating" :increment="0.5" read-only :star-size="16" :show-rating="false" inactive-color="#eceeec" active-color="#222222" inline />
+              <star-rating :rating="node.value | rating" :increment="0.5" read-only :star-size="12" :show-rating="false" inactive-color="#eceeec" active-color="#222222" inline />
             </p>
           </b-col>
         </b-row>
