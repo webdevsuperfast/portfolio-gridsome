@@ -8,15 +8,21 @@
           :key="index"
         >
           <div class="resume-content">
-            <h4 class="mb-0">{{ node.position }}, <span class="text-muted">{{ node.company }}</span></h4>
-            <!-- <div class="subheading mb-0 text-muted">{{ node.company }}</div> -->
-            <div class="resume-date mb-3">
-              <p
-                class="text-muted"
-                v-for="(date, index) in node.date"
-                :key="index"
-              >{{ date.start }} - {{ date.end }}</p>
-            </div>
+            <b-media class="resume-image">
+              <template v-slot:aside>
+                <calendar-icon size="3x" />
+              </template>
+              <div class="resume-data">
+                <h4 class="mb-0">{{ node.position }}, <span class="text-muted">{{ node.company }}</span></h4>
+                <div class="resume-date mb-0">
+                  <p
+                    class="text-muted"
+                    v-for="(date, index) in node.date"
+                    :key="index"
+                  >{{ date.start }} - {{ date.end }}</p>
+                </div>
+              </div>
+            </b-media>
             <ul class="mb-0 summary-list">
               <li
                 v-for="(summary, key) in node.summary"
@@ -54,7 +60,8 @@
 
 <script>
 import {
-  CheckCircleIcon
+  CheckCircleIcon,
+  CalendarIcon
 } from "vue-feather-icons";
 
 import Main from "@/layouts/Main";
@@ -70,7 +77,8 @@ export default {
   },
   components: {
     Main,
-    CheckCircleIcon
+    CheckCircleIcon,
+    CalendarIcon
   }
 };
 </script>
