@@ -39,12 +39,13 @@ $jumbotron-bg: rgba($primary, 0);
 
 // Forms
 
-$input-padding-y: px-to-rem(15px);
+$input-padding-y: px-to-rem(5px);
 $input-padding-x: px-to-rem(15px);
 $input-font-size: px-to-rem(15px);
-$input-font-weight: 300;
+$input-font-weight: 400;
 $input-line-height: 1.2;
-$input-height-inner: px-to-rem(50px); 
+$input-height: px-to-rem(40px);
+// $input-height-inner: px-to-rem(40px); 
 $input-font-size-lg: px-to-rem(15px);
 
 $input-padding-y-lg: $input-padding-y;
@@ -53,7 +54,7 @@ $input-font-size-lg: $input-font-size;
 $input-line-height-lg: $input-line-height;
 
 $input-bg: $light;
-$input-color: $primary;
+$input-color: $secondary;
 $input-border-color: $light;
 
 $form-group-margin-bottom: px-to-rem(20px);
