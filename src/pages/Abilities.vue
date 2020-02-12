@@ -57,7 +57,7 @@ import {
   SettingsIcon
 } from "vue-feather-icons";
 
-import StarRating from "vue-star-rating";
+import StarRating from "vue-star-rating/src";
 
 import Main from "@/layouts/Main";
 
@@ -76,7 +76,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
