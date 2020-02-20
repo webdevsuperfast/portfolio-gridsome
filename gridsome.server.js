@@ -160,6 +160,25 @@ module.exports = function (api) {
               dataUri: result.dataUri
             }
           }
+        },
+        imageSrc: {
+          args: imageType.args,
+          type: imageType.type,
+          async resolve(obj, args, context, info) {
+            const value = path.join(__dirname, 'src', 'images', `${obj.image}`)
+
+            try {
+              result = await context.assets.add(value, args)
+            } catch (err) {
+              return null
+            }
+        
+            if (result.isUrl) {
+              return result.src
+            }
+
+            return result.src
+          }
         }
       }
     })
