@@ -33,10 +33,6 @@
   }
 }
 
-.navbar-nav {
-  @include heading-font;
-}
-
 .navbar-nav .nav-item .nav-link {
   color: $light;
   font-weight: 900;
