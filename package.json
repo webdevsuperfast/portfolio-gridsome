@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "bootstrap-vue": "^2.4.2",
     "gh-pages": "^2.2.0",
+    "glightbox": "^2.0.5",
     "gridsome": "^0.7.12",
     "typeface-cabin": "^0.0.72",
     "typeface-roboto-condensed": "^0.0.75",
