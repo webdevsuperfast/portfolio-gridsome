@@ -51,7 +51,7 @@
                   </div>
                   <b-button
                     id="hamburger-3"
-                    :class="['hamburger', 'sidebar-toggle', {active: isHover}]"
+                    :class="['hamburger', 'sidebar-toggle']"
                     @click="selectedPortfolio = !selectedPortfolio"
                   >
                     <span class="icon-bar"></span>
@@ -60,7 +60,10 @@
                   </b-button>
                 </div>
               </transition>
-              <a href="#" class="glightbox" @click="getPortfolioId(node.id)">Hover</a>
+              <a :href="node.imageSrc" data-type="image" class="glightbox" :data-glightbox="`title: ${node.title}; description: .description-${node.id}`">Hover</a>
+              <div :class="`glightbox-desc description-${node.id}`">
+                <a :href="node.website" v-if="node.website">Visit Site</a>
+              </div>
             </figure>
           </b-col>
         </b-row>
@@ -81,7 +84,8 @@
         image,
         category,
         thumbnail: imagePath(width: 190, height: 190, fit: cover, quality: 80),
-        fullImage: imagePath(width: 565, height: 565, fit: inside, quality: 80, background: "#fff")
+        fullImage: imagePath(width: 565, height: 565, fit: inside, quality: 80, background: "#fff"),
+        imageSrc
       }
     }
   }
@@ -97,6 +101,7 @@
 }
 </page-query>
 <script>
+import gLightbox from 'glightbox'
 import { ArrowRightIcon } from 'vue-feather-icons';
 import Aside from "@/layouts/Aside";
 import Main from "@/layouts/Main";
@@ -137,6 +142,32 @@ export default {
     getPortfolioId: function(id) {
       this.selectedPortfolio = id;
     }
+  },
+  mounted() {
+    const lightbox = new gLightbox({
+      onOpen: () => {
+        console.log('Success')
+      }
+    })
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.glightbox-clean {
+  .gslide-description {
+    background: blue !important;
+    color: #fff;
+  }
+  .gslide-title {
+    &.gslide-title {
+      color: #fff;
+    }
+  }
+  .gslide-desc {
+    a {
+      color: #fff;
+    }
+  }
+}
+</style>
