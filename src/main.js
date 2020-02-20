@@ -9,6 +9,9 @@ require('typeface-roboto-condensed')
 // Import Global SCSS File
 import '~/assets/scss/resume.scss'
 
+// GLightbox CSS File
+import "glightbox/dist/css/glightbox.css";
+
 // Import Global Default Layout
 import DefaultLayout from '~/layouts/Default.vue'
 
