@@ -129,6 +129,20 @@ module.exports = function (api) {
     }
   } )
 
+  api.loadSource( async actions => {
+    const { data } = await axios.get(httpServer + '/navigation')
+    const navigation = actions.addCollection('Navigation')
+
+    for (const item of data ) {
+      navigation.addNode({
+        id: item.id,
+        name: item.name,
+        path: item.path,
+        icon: item.icon
+      })
+    }
+  } )
+
   // Adds schema resolver essential to dynamic image handling
   // @link https://github.com/gridsome/gridsome/issues/292#issuecomment-483347365
   api.loadSource(({ addSchemaResolvers }) => {
