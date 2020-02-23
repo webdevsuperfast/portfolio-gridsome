@@ -10,7 +10,7 @@
           <div class="resume-content">
             <b-media class="resume-image">
               <template v-slot:aside>
-                <calendar-icon size="3x" />
+                
               </template>
               <div class="resume-data">
                 <h4 class="mb-0">{{ node.position }}, <span class="text-muted">{{ node.company }}</span></h4>
@@ -28,7 +28,6 @@
                 v-for="(summary, key) in node.summary"
                 :key="key"
               >
-                <check-circle-icon size="1x" class="mr-1" />
                 {{ summary }}
               </li>
             </ul>
@@ -59,10 +58,6 @@
 </page-query>
 
 <script>
-import {
-  CheckCircleIcon,
-  CalendarIcon
-} from "vue-feather-icons";
 
 import Main from "@/layouts/Main";
 
@@ -76,9 +71,7 @@ export default {
     };
   },
   components: {
-    Main,
-    CheckCircleIcon,
-    CalendarIcon
+    Main
   }
 };
 </script>
