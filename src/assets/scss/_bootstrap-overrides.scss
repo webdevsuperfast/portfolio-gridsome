@@ -1,4 +1,5 @@
 .btn {
+  @include heading-font;
   text-transform: uppercase;
 }
 
