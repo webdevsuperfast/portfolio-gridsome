@@ -1,23 +1,19 @@
 <template>
-  <Layout sidebar="true" :title="pageTitle">
-    <Main :sectionID="pageTitle | slugify" :sectionClass="pageTitle | slugify">
-      <div class="w-100">
-        <p
-          class="lead"
-        >I’m a web developer, a self-proclaimed introvert and a *NIX enthusiast.</p>
-        <b-dropdown split text="Follow Me" class="social-links">
-          <b-dropdown-item v-for="{node} in $page.allSocial.edges" :key="node.id" :href="node.url" target="_blank">
+  <Layout>
+    <Main sectionID="home" sectionClass="home">
+      <b-container fluid>
+        <b-row>
+          <b-col cols="6" sm="4" v-for="({ node }, index) in $page.allNavigation.edges" :key="node.id" :class="index">
             {{ node.name }}
-          </b-dropdown-item>
-        </b-dropdown>
-        <b-button variant="outline-success" to="/contact">Hire Me</b-button>
-      </div>
+          </b-col>
+        </b-row>
+      </b-container>
     </Main>
   </Layout>
 </template>
 
 <page-query>
-{
+query {
   allSocial {
     edges {
       node {
@@ -25,6 +21,16 @@
         name,
         url,
         title,
+        icon
+      }
+    }
+  }
+  allNavigation(order: ASC) {
+    edges {
+      node {
+        id,
+        name,
+        path,
         icon
       }
     }
