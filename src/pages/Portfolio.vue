@@ -1,7 +1,7 @@
 <template>
   <Layout sidebar="true" :title="pageTitle">
     <Main sectionClass="flex-column" :sectionID="pageTitle | slugify">
-      <div class="w-100">
+      <div class="w-100 d-sm-none">
         <b-dropdown
           text="Filter Portfolio"
           menu-class="w-100"
@@ -15,9 +15,21 @@
           <b-dropdown-item
             v-for="{ node } in $page.allPortfolioCategory.edges"
             :key="node.id"
-            @click="filter(node.slug)"
+            :active="active == node.slug ? true : false"
+            @click="filter(node.slug); active = node.slug"
           >{{ node.title }}</b-dropdown-item>
         </b-dropdown>
+      </div>
+      <div class="w-100 d-none d-sm-block">
+        <b-nav pills align="center">
+          <b-nav-item @click="filter('all')" :active="initialFilter == 'all' ? true : false">All</b-nav-item>
+          <b-nav-item
+            v-for="{ node } in $page.allPortfolioCategory.edges"
+            :key="node.id"
+            :active="initialFilter == node.slug ? true : false"
+            @click="filter(node.slug)"
+          >{{ node.title }}</b-nav-item>
+        </b-nav>
       </div>
       <div class="w-100">
         <b-row>
@@ -25,8 +37,8 @@
             cols="6"
             sm="4"
             md="4"
-            lg="3"
-            xl="3"
+            lg="2"
+            xl="2"
             :class="['portfolio', `portfolio-${node.id}`]"
             v-for="{ node } in filterPortfolio"
             :key="node.id"
@@ -40,26 +52,6 @@
               <figcaption class="portfolio-content">
                 <h4 class="mb-0">{{ node.title }}</h4>
               </figcaption>
-              <transition name="slideLeft">
-                <div class="portfolio-image-overlay sidebar" v-show="node.id == selectedPortfolio">
-                  <g-image :src="node.fullImage" />
-                  <div class="portfolio-information d-flex flex-column flex-md-row justify-content-between">
-                    <div class="portfolio-name mb-0 text-uppercase">{{ node.title }}</div>
-                    <div class="portfolio-link mb-0 text-uppercase text-light">
-                      <g-link  v-if="node.website" :href="node.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
-                    </div>
-                  </div>
-                  <b-button
-                    id="hamburger-3"
-                    :class="['hamburger', 'sidebar-toggle']"
-                    @click="selectedPortfolio = !selectedPortfolio"
-                  >
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </b-button>
-                </div>
-              </transition>
               <a :href="node.imageSrc" data-type="image" class="glightbox" :data-glightbox="`title: ${node.title}; description: .description-${node.id}`">Hover</a>
               <div :class="`glightbox-desc description-${node.id}`">
                 <a :href="node.website" v-if="node.website">Visit Site</a>
@@ -102,7 +94,6 @@
 </page-query>
 <script>
 import gLightbox from 'glightbox'
-import { ArrowRightIcon } from 'vue-feather-icons';
 import Aside from "@/layouts/Aside";
 import Main from "@/layouts/Main";
 
@@ -115,13 +106,13 @@ export default {
       pageTitle: "Portfolio",
       initialFilter: "all",
       show: false,
-      selectedPortfolio: null
+      selectedPortfolio: null,
+      isActive: false
     };
   },
   components: {
     Aside,
-    Main,
-    ArrowRightIcon
+    Main
   },
   computed: {
     filterPortfolio: function() {
@@ -133,6 +124,14 @@ export default {
       } else {
         return this.$page.allPortfolio.edges;
       }
+    },
+    addPortfolioCategory: function() {
+      let categories = this.$page.allPortfolioCategory.edges
+      return Object.assign({
+        id: Math.random().toString(36).substr(2, 8),
+        title: 'All',
+        slug: 'all'
+      }, categories);
     }
   },
   methods: {
