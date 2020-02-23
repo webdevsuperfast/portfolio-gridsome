@@ -1,36 +1,22 @@
 <template>
   <b-navbar
-    toggleable
-    type="light"
-    variant="faded"
-    fixed="top"
-    :class="`${visible == true ? 'bg-primary' : ''}`"
+    toggleable="sm"
+    type="dark"
+    variant="primary"
   >
     <b-navbar-brand to="/">
-      <g-image src="~/images/logo.svg" width="75" :alt="$static.metadata.siteName" class="d-lg-none" />
+      <g-image src="~/images/logo.svg" width="75" :alt="$static.metadata.siteName" />
     </b-navbar-brand>
-    <b-button variant="outline-light" size="md" class="mr-4 ml-auto" href="https://drive.google.com/file/d/1ydxEniaVfuIeyUb7oPKUnLuv1jUGUEpT/view?usp=sharing" target="_blank">Resume</b-button>
-    <b-button
-      :class="['hamburger navbar-toggle', 'x', `${ visible ? 'active' : '' }`]"
-      id="hamburger-1"
-      data-toggle="collapse"
-      data-target="navbarSupportedContent"
-      @click="visible = !visible"
-    >
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </b-button>
-    <b-collapse id="navbarSupportedContent" is-nav v-model="visible">
-      <b-navbar-nav v-b-scrollspy>
+    <!-- <b-button variant="outline-light" size="md" class="ml-auto" href="https://drive.google.com/file/d/1ydxEniaVfuIeyUb7oPKUnLuv1jUGUEpT/view?usp=sharing" target="_blank">Resume</b-button> -->
+    <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
+    <b-collapse id="navbarSupportedContent" is-nav>
+      <b-navbar-nav v-b-scrollspy class="ml-auto">
         <b-nav-item
-          v-for="(navigation, index) in navigationList"
-          :key="index"
-          :to="navigation.path"
+          to="/"
           exact
           exact-active-class="active"
           @click="visible = false"
-        >{{ navigation.name }}</b-nav-item>
+        >Home</b-nav-item>
         <b-nav-item
           to="/experience/"
           exact
