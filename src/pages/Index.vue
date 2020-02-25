@@ -101,8 +101,8 @@
           <b-dropdown-item
             v-for="{ node } in $page.allPortfolioCategory.edges"
             :key="node.id"
-            :active="active == node.slug ? true : false"
-            @click="filter(node.slug); active = node.slug"
+            :active="initialFilter == node.slug ? true : false"
+            @click="filter(node.slug); initialFilter = node.slug"
           >{{ node.title }}</b-dropdown-item>
         </b-dropdown>
       </div>
