@@ -33,20 +33,22 @@
             :id="`portfolio-${node.id}`"
           >
             <figure>
-              <g-image
-                class="img-fluid portfolio-image mb-2"
-                :src="node.thumbnail"
-              />
+              <g-image class="img-fluid portfolio-image mb-2" :src="node.thumbnail" />
               <figcaption class="portfolio-content">
                 <h4 class="mb-0">{{ node.title }}</h4>
               </figcaption>
               <transition name="slideLeft">
                 <div class="portfolio-image-overlay sidebar" v-show="node.id == selectedPortfolio">
                   <g-image :src="node.fullImage" />
-                  <div class="portfolio-information d-flex flex-column flex-md-row justify-content-between">
+                  <div
+                    class="portfolio-information d-flex flex-column flex-md-row justify-content-between"
+                  >
                     <div class="portfolio-name mb-0 text-uppercase">{{ node.title }}</div>
                     <div class="portfolio-link mb-0 text-uppercase text-light">
-                      <g-link  v-if="node.website" :href="node.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
+                      <g-link v-if="node.website" :href="node.website" target="_blank">
+                        Visit Site
+                        <arrow-right-icon class="ml-2" size="1x" />
+                      </g-link>
                     </div>
                   </div>
                   <b-button
@@ -97,7 +99,7 @@
 }
 </page-query>
 <script>
-import { ArrowRightIcon } from 'vue-feather-icons';
+import { ArrowRightIcon } from "vue-feather-icons";
 import Aside from "@/layouts/Aside";
 import Main from "@/layouts/Main";
 
