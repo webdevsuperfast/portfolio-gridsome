@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "bootstrap-vue": "^2.4.2",
+    "bootstrap-vue": "^2.5.0",
     "gh-pages": "^2.2.0",
-    "gridsome": "^0.7.12",
+    "gridsome": "^0.7.13",
     "typeface-cabin": "^0.0.72",
     "typeface-roboto-condensed": "^0.0.75",
     "vue-star-rating": "^1.6.1",
@@ -20,7 +20,7 @@
     "vuelidate": "^0.7.5"
   },
   "devDependencies": {
-    "sass": "^1.25.0",
+    "sass": "^1.26.1",
     "sass-loader": "^8.0.2",
     "vue-feather-icons": "^5.0.0",
     "vue-svg-loader": "^0.16.0"
