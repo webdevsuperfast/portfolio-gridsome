@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "bootstrap-vue": "^2.5.0",
+    "bootstrap-vue": "^2.7.0",
     "gh-pages": "^2.2.0",
     "gridsome": "^0.7.13",
     "typeface-cabin": "^0.0.72",
@@ -20,7 +20,7 @@
     "vuelidate": "^0.7.5"
   },
   "devDependencies": {
-    "sass": "^1.26.2",
+    "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "vue-feather-icons": "^5.0.0",
     "vue-svg-loader": "^0.16.0"
