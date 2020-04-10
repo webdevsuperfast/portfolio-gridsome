@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "bootstrap-vue": "^2.9.0",
+    "bootstrap-vue": "^2.11.0",
     "gh-pages": "^2.2.0",
     "gridsome": "^0.7.13",
     "typeface-cabin": "^0.0.72",
