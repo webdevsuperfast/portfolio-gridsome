@@ -1782,10 +1782,10 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap-vue@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.5.0.tgz#a8e48f9c0d15ebeb0f0b35cdc1ab26fd7a015307"
-  integrity sha512-LixZePxJqIkwsha2WAjAu7ZDH+oJ+JLxPGsl1SIbWebcEYZ+QtGx4JM2nR287t/0uWYGO+/oJ0KlaSO662VtLA==
+bootstrap-vue@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.11.0.tgz#9994b9529c4d36c7a89812f91e4aad1299f15829"
+  integrity sha512-T23+aVVSDifX1SsI5y69bYZzbm8iQHlmgiBUw9XxY1KTw/fb4xvUq4+Y01Tsaul04+zmrUah/5zvUGKLwTcH7A==
   dependencies:
     "@nuxt/opencollective" "^0.3.0"
     bootstrap ">=4.4.1 <5.0.0"
@@ -7333,10 +7333,10 @@ sass-loader@^8.0.2:
     schema-utils "^2.6.1"
     semver "^6.3.0"
 
-sass@^1.26.1:
-  version "1.26.1"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.1.tgz#79a36c957530c1dfffa2958968b90cb736794e91"
-  integrity sha512-DWtzW0jDu+96MYkEdM8vUigjpisvM9qSlDwNvTFcr+XC7o2+3aXSAbHNcJ+8HzD1857uW9Opbxgu39esytVUKA==
+sass@^1.26.3:
+  version "1.26.3"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.26.3.tgz#412df54486143b76b5a65cdf7569e86f44659f46"
+  integrity sha512-5NMHI1+YFYw4sN3yfKjpLuV9B5l7MqQ6FlkTcC4FT+oHbBRUZoSjHrrt/mE0nFXJyY2kQtU9ou9HxvFVjLFuuw==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
