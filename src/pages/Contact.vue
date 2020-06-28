@@ -111,7 +111,7 @@
 
 <page-query>
 {
-  allPortfolioCategory(sortBy: "slug", order: ASC) {
+  allPortfolioCategory(sortBy: "title", order: ASC) {
     edges {
       node {
         id,
@@ -185,7 +185,10 @@ export default {
         setTimeout(() => {
           fetch("https://formspree.io/xlegeved", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            headers: { 
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Accept": "application/json"
+            },
             body: this.encode({
               "form-name": "contact",
               ...this.form
@@ -193,12 +196,10 @@ export default {
           })
             .then(() => {
               this.submitStatus = "OK";
+              this.$router.push("/thanks");
             })
             .catch(error => {
               this.submitStatus = "ERROR";
-            })
-            .finally(() => {
-              this.$router.push("/thanks");
             });
         }, 500);
       }
