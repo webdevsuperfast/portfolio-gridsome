@@ -53,7 +53,7 @@
                   </div>
                   <b-button
                     id="hamburger-3"
-                    :class="['hamburger', 'sidebar-toggle', {active: isHover}]"
+                    :class="['hamburger', 'sidebar-toggle']"
                     @click="selectedPortfolio = !selectedPortfolio"
                   >
                     <span class="icon-bar"></span>
