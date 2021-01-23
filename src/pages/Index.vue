@@ -10,7 +10,7 @@
             {{ node.name }}
           </b-dropdown-item>
         </b-dropdown>
-        <b-button variant="outline-success" to="/contact">Hire Me</b-button>
+        <b-button variant="outline-success" to="/contact">Contact</b-button>
       </div>
     </Main>
   </Layout>
