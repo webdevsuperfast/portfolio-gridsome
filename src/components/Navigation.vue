@@ -9,7 +9,7 @@
     <b-navbar-brand to="/">
       <g-image src="~/images/logo.svg" width="75" :alt="$static.metadata.siteName" class="d-lg-none" />
     </b-navbar-brand>
-    <b-button variant="outline-light" size="md" class="mr-4 ml-auto" href="https://drive.google.com/file/d/1ydxEniaVfuIeyUb7oPKUnLuv1jUGUEpT/view?usp=sharing" target="_blank">Resume</b-button>
+    <b-button variant="outline-light" size="md" class="mr-4 ml-auto" href="https://drive.google.com/file/d/12MSzpuX_cKAC-nNr0uNt6WLA04Y4s2y0/view?usp=sharing" target="_blank">Resume</b-button>
     <b-button
       :class="['hamburger navbar-toggle', 'x', `${ visible ? 'active' : '' }`]"
       id="hamburger-1"
