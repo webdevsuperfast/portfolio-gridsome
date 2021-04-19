@@ -1,66 +1,20 @@
 <template>
-  <b-navbar
-    toggleable
-    type="light"
-    variant="faded"
-    fixed="top"
-    :class="`${visible == true ? 'bg-primary' : ''}`"
-  >
-    <b-navbar-brand to="/">
-      <g-image src="~/images/logo.svg" width="75" :alt="$static.metadata.siteName" class="d-lg-none" />
+  <b-navbar toggleable="lg" type="dark" class="bg-primary fixed-top" id="sideNav">
+    <b-navbar-brand to="#app">
+      <span class="d-block d-lg-none">Rotsen Acob</span>
+      <span class="d-none d-lg-block">
+        <b-img-lazy class="img-fluid img-profile rounded-circle mx-auto mb-2" src="~/images/logo.svg" alt="" />
+      </span>
     </b-navbar-brand>
-    <b-button variant="outline-light" size="md" class="mr-4 ml-auto" href="https://drive.google.com/file/d/1ydxEniaVfuIeyUb7oPKUnLuv1jUGUEpT/view?usp=sharing" target="_blank">Resume</b-button>
-    <b-button
-      :class="['hamburger navbar-toggle', 'x', `${ visible ? 'active' : '' }`]"
-      id="hamburger-1"
-      data-toggle="collapse"
-      data-target="navbarSupportedContent"
-      @click="visible = !visible"
-    >
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </b-button>
-    <b-collapse id="navbarSupportedContent" is-nav v-model="visible">
+    <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
+    <b-collapse id="navbarSupportedContent" is-nav>
       <b-navbar-nav v-b-scrollspy>
         <b-nav-item
           v-for="(navigation, index) in navigationList"
           :key="index"
-          :to="navigation.path"
-          exact
-          exact-active-class="active"
-          @click="visible = false"
-        >{{ navigation.name }}</b-nav-item>
-        <b-nav-item
-          to="/experience/"
-          exact
-          exact-active-class="active"
-          @click="visible = false"
-        >Experience</b-nav-item>
-        <b-nav-item
-          to="/abilities/"
-          exact
-          exact-active-class="active"
-          @click="visible = false"
-        >Abilities</b-nav-item>
-        <b-nav-item
-          to="/portfolio/"
-          exact
-          exact-active-class="active"
-          @click="visible = false"
-        >Portfolio</b-nav-item>
-        <b-nav-item
-          to="/testimonials/"
-          exact
-          exact-active-class="active"
-          @click="visible = false"
-        >Testimonials</b-nav-item>
-        <b-nav-item
-          to="/contact/"
-          exact
-          exact-active-class="active"
-          @click="visible = false"
-        >Contact</b-nav-item>
+          class="js-scroll-trigger"
+          :href="navigation.url"
+        >{{ navigation.title }}</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -80,7 +34,25 @@ export default {
   data() {
     return {
       visible: false,
-      scrollPosition: null
+      scrollPosition: null,
+      navigationList: [
+        {
+          title: "About",
+          url: "#about"
+        },
+        {
+          title: "Experience",
+          url: "#experience"
+        },
+        {
+          title: "Education",
+          url: "#education"
+        },
+        {
+          title: "Contact",
+          url: "#contact"
+        }
+      ]
     };
   },
   computed: {

@@ -1,6 +1,8 @@
 <template>
-  <div class="site-container" id="app">
+  <div id="app">
     <Navigation />
+    <b-container class="p-0" fluid>
+    </b-container>
   </div>
 </template>
 
