@@ -1,11 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" class="bg-primary fixed-top" id="sideNav">
-    <b-navbar-brand to="#app">
-      <span class="d-block d-lg-none">Rotsen Acob</span>
-      <span class="d-none d-lg-block">
-        <b-img-lazy class="img-fluid img-profile rounded-circle mx-auto mb-2" src="~/images/logo.svg" alt="" />
-      </span>
-    </b-navbar-brand>
+    <Brand />
     <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
     <b-collapse id="navbarSupportedContent" is-nav>
       <b-navbar-nav v-b-scrollspy>
@@ -29,8 +24,13 @@ query {
 </static-query>
 
 <script>
+import Brand from '@/components/Brand'
+
 export default {
   name: "Navigation",
+  components: {
+    Brand
+  },
   data() {
     return {
       visible: false,
