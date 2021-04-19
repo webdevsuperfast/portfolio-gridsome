@@ -19,9 +19,7 @@ module.exports = {
         concurrent: 10
       }
     },
-    {
-      'gridsome-plugin-robots-txt'
-    },
+    'gridsome-plugin-robots-txt',
     {
       use: '@noxify/gridsome-plugin-remote-image',
       options: {
