@@ -1,9 +1,6 @@
 <template>
   <div class="site-container" id="app">
     <Navigation />
-    <transition name="fade">
-      <router-view />
-    </transition>
   </div>
 </template>
 
