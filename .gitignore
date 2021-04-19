@@ -8,3 +8,4 @@ dist
 .env.*
 wp-images
 .temp
+src/assets/remote
