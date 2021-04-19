@@ -16,26 +16,7 @@
   </Layout>
 </template>
 
-<page-query>
-{
-  allSocial {
-    edges {
-      node {
-        id,
-        name,
-        url,
-        title,
-        icon
-      }
-    }
-  }
-}
-</page-query>
-
 <script>
-import Aside from "@/layouts/Aside";
-import Main from "@/layouts/Main";
-import Sidebar from "@/components/Sidebar";
 
 export default {
   data() {
@@ -49,11 +30,6 @@ export default {
     bodyAttrs: {
       class: 'home'
     }
-  },
-  components: {
-    Aside,
-    Main,
-    Sidebar
   }
 }
 </script>
