@@ -2,10 +2,6 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 import BootstrapVue from 'bootstrap-vue'
 
-// Google Fonts
-require('typeface-cabin')
-require('typeface-roboto-condensed')
-
 // Import Global SCSS File
 import '~/assets/scss/resume.scss'
 
@@ -33,6 +29,10 @@ export default function (Vue, { router, head, isClient }) {
       .replace(/^-+/, '')             // Trim - from start of text
       .replace(/-+$/, '');            // Trim - from end of text
   })
+
+  Vue.filter( 'stringify', (value) => {
+    return value
+  } )
 
   Vue.filter('rating', (value) => {
     if (!value) {
