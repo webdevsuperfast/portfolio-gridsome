@@ -1,10 +1,7 @@
 <template>
-  <div class="site-inner">
-    <div id="sideNav" class="p-0 container-fluid" v-if="sidebar">
-      <Sidebar :title="title" />
-    </div>
+  <b-container class="p-0" fluid>
     <slot />
-  </div>
+  </b-container>
 </template>
 
 <script>

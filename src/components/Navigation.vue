@@ -1,26 +1,14 @@
 <template>
   <b-navbar
-    toggleable
-    type="light"
-    variant="faded"
-    fixed="top"
-    :class="`${visible == true ? 'bg-primary' : ''}`"
+    toggleable="lg"
+    type="dark"
+    class="fixed-top bg-primary"
+    id="sideNav"
   >
     <b-navbar-brand to="/">
       <g-image src="~/images/logo.svg" width="75" :alt="$static.metadata.siteName" class="d-lg-none" />
     </b-navbar-brand>
-    <b-button variant="outline-light" size="md" class="mr-4 ml-auto" href="https://drive.google.com/file/d/12MSzpuX_cKAC-nNr0uNt6WLA04Y4s2y0/view?usp=sharing" target="_blank">Resume</b-button>
-    <b-button
-      :class="['hamburger navbar-toggle', 'x', `${ visible ? 'active' : '' }`]"
-      id="hamburger-1"
-      data-toggle="collapse"
-      data-target="navbarSupportedContent"
-      @click="visible = !visible"
-    >
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </b-button>
+    <b-navbar-toggle target="navbarSupportedContent" />
     <b-collapse id="navbarSupportedContent" is-nav v-model="visible">
       <b-navbar-nav v-b-scrollspy>
         <b-nav-item
