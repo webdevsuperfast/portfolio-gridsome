@@ -2,8 +2,20 @@
   <Layout sidebar="true" :title="pageTitle">
     <Main sectionClass="flex-column" :sectionID="pageTitle | slugify">
       <div class="w-100">
+        <b-nav align="end" class="d-none d-sm-flex">
+          <b-nav-item active exact exact-active-class="active" @click="filter('all')">All</b-nav-item>
+          <b-nav-item
+            v-for="{ node } in $page.allWordPressPortfolioCategory.edges"
+            :key="node.id"
+            exact
+            exact-active-class="active"
+            :class="node.slug"
+            @click="filter(node.slug)"
+          >{{ node.title }}</b-nav-item>
+        </b-nav>
         <b-dropdown
           text="Filter Portfolio"
+          class="d-sm-none"
           menu-class="w-100"
           size="sm"
           variant="primary"
@@ -13,7 +25,7 @@
         >
           <b-dropdown-item @click="filter('all')">All</b-dropdown-item>
           <b-dropdown-item
-            v-for="{ node } in $page.allPortfolioCategory.edges"
+            v-for="{ node } in $page.allWordPressPortfolioCategory.edges"
             :key="node.id"
             @click="filter(node.slug)"
           >{{ node.title }}</b-dropdown-item>
@@ -26,29 +38,20 @@
             sm="4"
             md="4"
             lg="3"
-            xl="3"
+            xl="2"
             :class="['portfolio', `portfolio-${node.id}`]"
             v-for="{ node } in filterPortfolio"
             :key="node.id"
             :id="`portfolio-${node.id}`"
           >
             <figure>
-              <g-image
-                class="img-fluid portfolio-image mb-2"
-                :src="node.thumbnail"
-              />
+              <g-image :src="node.featuredMedia.thumbnail" class="img-fluid portfolio-image mb-2" fit="fill" />
               <figcaption class="portfolio-content">
-                <h4 class="mb-0">{{ node.title }}</h4>
+                <p class="mb-0" v-html="node.title"></p>
               </figcaption>
               <transition name="slideLeft">
                 <div class="portfolio-image-overlay sidebar" v-show="node.id == selectedPortfolio">
-                  <g-image :src="node.fullImage" />
-                  <div class="portfolio-information d-flex flex-column flex-md-row justify-content-between">
-                    <div class="portfolio-name mb-0 text-uppercase">{{ node.title }}</div>
-                    <div class="portfolio-link mb-0 text-uppercase text-light">
-                      <g-link  v-if="node.website" :href="node.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
-                    </div>
-                  </div>
+                  <b-img-lazy :src="node.featuredMedia.fullImage.src" :alt="node.title" />
                   <b-button
                     id="hamburger-3"
                     :class="['hamburger', 'sidebar-toggle']"
@@ -60,7 +63,6 @@
                   </b-button>
                 </div>
               </transition>
-              <a href="#" class="glightbox" @click="getPortfolioId(node.id)">Hover</a>
             </figure>
           </b-col>
         </b-row>
@@ -69,23 +71,10 @@
   </Layout>
 </template>
 
+
 <page-query>
 {
-  allPortfolio(sortBy: "title", order: ASC) {
-    edges {
-      node {
-        id,
-        title,
-        client,
-        website,
-        image,
-        category,
-        thumbnail: imagePath(width: 190, height: 190, fit: cover, quality: 80),
-        fullImage: imagePath(width: 565, height: 565, fit: inside, quality: 80, background: "#fff")
-      }
-    }
-  }
-  allPortfolioCategory(sortBy: "slug", order: ASC) {
+  allWordPressPortfolioCategory {
     edges {
       node {
         id,
@@ -93,9 +82,25 @@
         slug
       }
     }
+  },
+  allWordPressPortfolio {
+    edges {
+      node {
+        id,
+        title,
+        category: portfolioCategory {
+          slug
+        },
+				featuredMedia {
+          thumbnail: downloadedImages(width: 250, height: 250),
+          fullImage: downloadedImages
+        }
+      }
+    }
   }
 }
 </page-query>
+
 <script>
 import { ArrowRightIcon } from 'vue-feather-icons';
 import Aside from "@/layouts/Aside";
@@ -122,11 +127,11 @@ export default {
     filterPortfolio: function() {
       var filter = this.initialFilter;
       if (filter != "all") {
-        return this.$page.allPortfolio.edges.filter(function(item) {
-          return item.node.category.indexOf(filter) !== -1;
+        return this.$page.allWordPressPortfolio.edges.filter(function(item) {
+          return item.node.category[0].slug.indexOf(filter) !== -1;
         });
       } else {
-        return this.$page.allPortfolio.edges;
+        return this.$page.allWordPressPortfolio.edges;
       }
     }
   },

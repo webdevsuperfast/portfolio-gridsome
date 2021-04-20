@@ -4,20 +4,20 @@
       <div class="w-100">
         <h2>What Clients Say About Me</h2>
         <div
-          v-for="({ node }, index)  in $page.allTestimonials.edges"
+          v-for="({ node }, index)  in $page.allWordPressTestimonial.edges"
           :key="index"
           :class="['testimonial', `testimonial-${node.id}`]"
         >
           <b-media :right-align="index % 2 ? true : false" class="testimonial-image">
             <template v-slot:aside>
-              <g-image class="img-fluid portfolio-image" src="~/images/upwork.png" width="100" height="100" />
+              <g-image class="img-fluid portfolio-image" :src="node.featuredMedia.thumbnail" width="100" height="100" />
             </template>
             <div class="testimonial-content mb-2">
-              <blockquote v-html="node.review" class="mb-0"></blockquote>
+              <blockquote v-html="node.content" class="mb-0"></blockquote>
             </div>
             <div class="author-information">
-              <h4 class="testimonial-title mb-0">{{ node.name }}</h4>
-              <p class="small text-secondary">{{ node.location }}</p>
+              <h4 class="testimonial-title mb-0">{{ node.title }}</h4>
+              <p class="small text-secondary">{{ node.acf.location }}</p>
             </div>
           </b-media>
         </div>
@@ -28,19 +28,26 @@
 
 <page-query>
 {
-  allTestimonials {
+  allWordPressTestimonial {
     edges {
       node {
         id,
-        name,
-        location,
-        review,
-        score
+        title,
+        content,
+        slug,
+        acf {
+          score: testimonialScore,
+          location: testimonialLocation
+        },
+        featuredMedia {
+          thumbnail: downloadedImages(width: 80, height: 80)
+        }
       }
     }
   }
 }
 </page-query>
+
 <script>
 import Main from "@/layouts/Main";
 
