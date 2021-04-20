@@ -1,8 +1,16 @@
-.btn {
-  text-transform: uppercase;
+.bg-primary {
+  background-color: $primary !important;
 }
 
-.jumbotron {
-  margin-bottom: 0;
-  border-radius: 0;
+.text-primary {
+  color: $primary !important;
+}
+
+a {
+  color: $primary;
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken($primary, 15%);
+  }
 }
