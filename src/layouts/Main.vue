@@ -1,9 +1,7 @@
 <template>
-  <b-container class="p-0" fluid>
-    <section :id="`section-${sectionID}`" :class="['resume-section', 'd-flex', 'align-items-center', `section-${sectionClass}`]">
-      <slot />
-    </section>
-  </b-container>
+  <section :id="sectionID" :class="['resume-section', 'p-3', 'p-lg-5', 'd-flex', 'align-items-center', sectionClass]">
+    <slot />
+  </section>
 </template>
 <script>
 export default {
