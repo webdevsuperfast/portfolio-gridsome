@@ -16,13 +16,7 @@ module.exports = {
         apiBase: 'wp-json',
         typeName: 'WordPress',
         perPage: 100,
-        concurrent: 10,
-        customEndpoints: [
-          {
-            typeName: 'allWordPressMenu',
-            route: 'menus/v1/menus'
-          }
-        ]
+        concurrent: 10
       }
     },
     'gridsome-plugin-robots-txt',
