@@ -24,7 +24,6 @@
 <script>
 import Aside from "@/layouts/Aside";
 import Main from "@/layouts/Main";
-import Sidebar from "@/components/Sidebar";
 
 export default {
   data() {
@@ -41,8 +40,7 @@ export default {
   },
   components: {
     Aside,
-    Main,
-    Sidebar
+    Main
   }
 }
 </script>
