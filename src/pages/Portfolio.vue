@@ -2,20 +2,8 @@
   <Layout sidebar="true" :title="pageTitle">
     <Main sectionClass="flex-column" :sectionID="pageTitle | slugify">
       <div class="w-100">
-        <b-nav align="end" class="d-none d-sm-flex">
-          <b-nav-item active exact exact-active-class="active" @click="filter('all')">All</b-nav-item>
-          <b-nav-item
-            v-for="{ node } in $page.allWordPressPortfolioCategory.edges"
-            :key="node.id"
-            exact
-            exact-active-class="active"
-            :class="node.slug"
-            @click="filter(node.slug)"
-          >{{ node.title }}</b-nav-item>
-        </b-nav>
         <b-dropdown
           text="Filter Portfolio"
-          class="d-sm-none"
           menu-class="w-100"
           size="sm"
           variant="primary"
@@ -38,20 +26,29 @@
             sm="4"
             md="4"
             lg="3"
-            xl="2"
+            xl="3"
             :class="['portfolio', `portfolio-${node.id}`]"
             v-for="{ node } in filterPortfolio"
             :key="node.id"
             :id="`portfolio-${node.id}`"
           >
             <figure>
-              <g-image :src="node.featuredMedia.thumbnail" class="img-fluid portfolio-image mb-2" fit="fill" />
+              <g-image
+                class="img-fluid portfolio-image mb-2"
+                :src="node.featuredMedia.thumbnail"
+              />
               <figcaption class="portfolio-content">
-                <p class="mb-0" v-html="node.title"></p>
+                <h4 class="mb-0">{{ node.title }}</h4>
               </figcaption>
               <transition name="slideLeft">
                 <div class="portfolio-image-overlay sidebar" v-show="node.id == selectedPortfolio">
-                  <b-img-lazy :src="node.featuredMedia.fullImage.src" :alt="node.title" />
+                  <g-image :src="node.featuredMedia.fullImage" />
+                  <div class="portfolio-information d-flex flex-column flex-md-row justify-content-between">
+                    <div class="portfolio-name mb-0 text-uppercase">{{ node.title }}</div>
+                    <div class="portfolio-link mb-0 text-uppercase text-light">
+                      <g-link  v-if="node.website" :href="node.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
+                    </div>
+                  </div>
                   <b-button
                     id="hamburger-3"
                     :class="['hamburger', 'sidebar-toggle']"
@@ -63,6 +60,7 @@
                   </b-button>
                 </div>
               </transition>
+              <a href="#" class="glightbox" @click="getPortfolioId(node.id)">Hover</a>
             </figure>
           </b-col>
         </b-row>
