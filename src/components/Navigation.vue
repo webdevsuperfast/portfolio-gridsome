@@ -6,7 +6,6 @@
     id="sideNav"
   >
     <b-navbar-brand to="/">
-      <g-image src="~/images/logo.svg" width="75" :alt="$static.metadata.siteName" class="d-lg-none" />
     </b-navbar-brand>
     <b-navbar-toggle target="navbarSupportedContent" />
     <b-collapse id="navbarSupportedContent" is-nav v-model="visible">
