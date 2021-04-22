@@ -9,9 +9,6 @@
         >
           <div class="resume-content">
             <b-media class="resume-image">
-              <template v-slot:aside>
-                <calendar-icon size="3x" />
-              </template>
               <div class="resume-data">
                 <h4 class="mb-0">{{ node.acf.position }}, <span class="text-muted">{{ node.acf.company }}</span></h4>
                 <div class="resume-date mb-0">
