@@ -13,7 +13,7 @@
         >
           <b-dropdown-item @click="filter('all')">All</b-dropdown-item>
           <b-dropdown-item
-            v-for="{ node } in $page.allPortfolioCategory.edges"
+            v-for="{ node } in $page.allWordPressPortfolioCategory.edges"
             :key="node.id"
             @click="filter(node.slug)"
           >{{ node.title }}</b-dropdown-item>
@@ -35,18 +35,18 @@
             <figure>
               <g-image
                 class="img-fluid portfolio-image mb-2"
-                :src="node.thumbnail"
+                :src="node.featuredMedia.thumbnail"
               />
               <figcaption class="portfolio-content">
-                <h4 class="mb-0">{{ node.title }}</h4>
+                <h4 class="mb-0" v-html="node.title" />
               </figcaption>
               <transition name="slideLeft">
                 <div class="portfolio-image-overlay sidebar" v-show="node.id == selectedPortfolio">
-                  <g-image :src="node.fullImage" />
+                  <b-img-lazy :src="node.featuredMedia.fullImage.src" />
                   <div class="portfolio-information d-flex flex-column flex-md-row justify-content-between">
-                    <div class="portfolio-name mb-0 text-uppercase">{{ node.title }}</div>
+                    <div class="portfolio-name mb-0 text-uppercase" v-html="node.title" />
                     <div class="portfolio-link mb-0 text-uppercase text-light">
-                      <g-link  v-if="node.website" :href="node.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
+                      <g-link  v-if="node.acf.website" :href="node.acf.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
                     </div>
                   </div>
                   <b-button
@@ -69,23 +69,10 @@
   </Layout>
 </template>
 
+
 <page-query>
 {
-  allPortfolio(sortBy: "title", order: ASC) {
-    edges {
-      node {
-        id,
-        title,
-        client,
-        website,
-        image,
-        category,
-        thumbnail: imagePath(width: 190, height: 190, fit: cover, quality: 80),
-        fullImage: imagePath(width: 565, height: 565, fit: inside, quality: 80, background: "#fff")
-      }
-    }
-  }
-  allPortfolioCategory(sortBy: "slug", order: ASC) {
+  allWordPressPortfolioCategory(sortBy: "title", order: ASC) {
     edges {
       node {
         id,
@@ -93,9 +80,29 @@
         slug
       }
     }
+  },
+  allWordPressPortfolio(sortBy: "slug", order: ASC) {
+    edges {
+      node {
+        id,
+        title,
+        category: portfolioCategory {
+          slug
+        },
+				featuredMedia {
+          thumbnail: downloadedImages(width: 250, height: 250),
+          fullImage: downloadedImages
+        },
+        acf {
+          client: clientName,
+          website: clientWebsite
+        }
+      }
+    }
   }
 }
 </page-query>
+
 <script>
 import { ArrowRightIcon } from 'vue-feather-icons';
 import Aside from "@/layouts/Aside";
@@ -122,11 +129,11 @@ export default {
     filterPortfolio: function() {
       var filter = this.initialFilter;
       if (filter != "all") {
-        return this.$page.allPortfolio.edges.filter(function(item) {
-          return item.node.category.indexOf(filter) !== -1;
+        return this.$page.allWordPressPortfolio.edges.filter(function(item) {
+          return item.node.category[0].slug.indexOf(filter) !== -1;
         });
       } else {
-        return this.$page.allPortfolio.edges;
+        return this.$page.allWordPressPortfolio.edges;
       }
     }
   },

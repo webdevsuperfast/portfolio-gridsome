@@ -11,79 +11,67 @@
           name="contact"
           class="text-center w-md-75 mx-auto"
           method="POST"
-          action="https://formspree.io/xlegeved"
         >
           <b-form-input name="form-name" value="contact" hidden></b-form-input>
 
           <b-row>
             <b-col lg="6" class="form-group">
               <b-form-input
-                v-model.trim="$v.form.name.$model"
+                v-model.trim="$v.form.fname.$model"
                 type="text"
                 class="form-control"
                 placeholder="Name"
                 name="name"
                 aria-describedby="name-live-feedback"
-                :state="$v.form.name.$dirty ? !$v.form.name.$error : null"
+                :state="$v.form.fname.$dirty ? !$v.form.fname.$error : null"
               ></b-form-input>
               <b-form-invalid-feedback
                 id="name-live-feedback"
-              >Field is required and name must have at least {{ $v.form.name.$params.minLength.min }} characters.</b-form-invalid-feedback>
+              >Field is required and name must have at least {{ $v.form.fname.$params.minLength.min }} characters.</b-form-invalid-feedback>
             </b-col>
             <b-col lg="6" class="form-group">
               <b-form-input
-                v-model.trim="$v.form.email.$model"
+                v-model.trim="$v.form.femail.$model"
                 type="email"
                 class="form-control"
                 placeholder="Email Address"
                 name="email"
                 aria-describedby="email-live-feedback"
-                :state="$v.form.email.$dirty ? !$v.form.email.$error : null"
+                :state="$v.form.femail.$dirty ? !$v.form.femail.$error : null"
               ></b-form-input>
               <b-form-invalid-feedback
                 id="email-live-feedback"
               >Field is required and email must be a valid email.</b-form-invalid-feedback>
             </b-col>
             <b-col lg="6" class="form-group">
-              <b-form-select v-model.trim="$v.form.service.$model">
+              <b-form-select v-model.trim="$v.form.fservice.$model">
                 <template v-slot:first>
                   <b-form-select-option :value="null">Service you're interested in?</b-form-select-option>
                 </template>
-                <b-form-select-option v-for="{ node } in $page.allPortfolioCategory.edges" :key="node.id" :value="node.slug">{{node.title}}</b-form-select-option>
+                <b-form-select-option v-for="{ node } in $page.allWordPressPortfolioCategory.edges" :key="node.id" :value="node.title">{{ node.title }}</b-form-select-option>
               </b-form-select>
             </b-col>
             <b-col lg="6" class="form-group">
               <b-form-input
-                v-model.trim="$v.form.website.$model"
+                v-model.trim="$v.form.fwebsite.$model"
                 type="url"
                 class="form-control"
                 placeholder="Website"
                 name="website"
                 aria-describedby="website-live-feedback"
-                :state="$v.form.website.$dirty ? !$v.form.website.$error : null"
-              ></b-form-input>
-            </b-col>
-            <b-col lg="12" class="form-group">
-              <b-form-input
-                v-model.trim="$v.form.subject.$model"
-                type="text"
-                class="form-control"
-                placeholder="Subject"
-                name="subject"
-                aria-describedby="subject-live-feedback"
-                :state="$v.form.subject.$dirty ? !$v.form.subject.$error : null"
+                :state="$v.form.fwebsite.$dirty ? !$v.form.fwebsite.$error : null"
               ></b-form-input>
             </b-col>
             <b-col lg="12" class="form-group">
               <b-form-textarea
-                v-model.trim="$v.form.message.$model"
+                v-model.trim="$v.form.fmessage.$model"
                 name="message"
                 cols="80"
                 rows="10"
                 class="form-control form-control-lg"
                 placeholder="Tell me more about your project"
                 aria-describedby="message-live-feedback"
-                :state="$v.form.message.$dirty ? !$v.form.message.$error : null"
+                :state="$v.form.fmessage.$dirty ? !$v.form.fmessage.$error : null"
               ></b-form-textarea>
               <b-form-invalid-feedback id="message-live-feedback">Field is required</b-form-invalid-feedback>
             </b-col>
@@ -111,7 +99,7 @@
 
 <page-query>
 {
-  allPortfolioCategory(sortBy: "title", order: ASC) {
+  allWordPressPortfolioCategory {
     edges {
       node {
         id,
@@ -128,6 +116,8 @@ import Main from "@/layouts/Main";
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
+const httpServer = process.env.NODE_ENV === 'production' ? 'https://cdn.rotsenacob.com' : 'https://rotsenacob.ddev.site'
+
 export default {
   mixins: [validationMixin],
   metaInfo: {
@@ -139,12 +129,11 @@ export default {
   data() {
     return {
       form: {
-        name: "",
-        email: "",
-        service: null,
-        website: "",
-        subject: "",
-        message: ""
+        fname: "",
+        femail: "",
+        fservice: null,
+        fwebsite: "",
+        fmessage: ""
       },
       submitStatus: null,
       pageTitle: "Contact"
@@ -152,18 +141,17 @@ export default {
   },
   validations: {
     form: {
-      name: {
+      fname: {
         required,
         minLength: minLength(2)
       },
-      email: {
+      femail: {
         required,
         email
       },
-      service: {},
-      website: {},
-      subject: {},
-      message: {
+      fservice: {},
+      fwebsite: {},
+      fmessage: {
         required
       }
     }
@@ -183,7 +171,7 @@ export default {
       } else {
         this.submitStatus = "PENDING";
         setTimeout(() => {
-          fetch("https://formspree.io/xlegeved", {
+          fetch(httpServer + '/wp-json/contact-form-7/v1/contact-forms/3/feedback', {
             method: "POST",
             headers: { 
               "Content-Type": "application/x-www-form-urlencoded",
