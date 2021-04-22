@@ -31,13 +31,13 @@
             </b-col>
             <b-col lg="6" class="form-group">
               <b-form-input
-                v-model.trim="$v.form.femail.$model"
+                v-model.trim="$v.form.fmail.$model"
                 type="email"
                 class="form-control"
                 placeholder="Email Address"
                 name="email"
                 aria-describedby="email-live-feedback"
-                :state="$v.form.femail.$dirty ? !$v.form.femail.$error : null"
+                :state="$v.form.fmail.$dirty ? !$v.form.fmail.$error : null"
               ></b-form-input>
               <b-form-invalid-feedback
                 id="email-live-feedback"
@@ -128,7 +128,7 @@ export default {
     return {
       form: {
         fname: "",
-        femail: "",
+        fmail: "",
         fservice: null,
         fwebsite: "",
         fmessage: ""
@@ -143,7 +143,7 @@ export default {
         required,
         minLength: minLength(2)
       },
-      femail: {
+      fmail: {
         required,
         email
       },
