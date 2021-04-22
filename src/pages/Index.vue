@@ -2,7 +2,7 @@
   <Layout sidebar="true" :title="pageTitle">
     <Main :sectionID="pageTitle | slugify" :sectionClass="pageTitle | slugify">
       <div class="w-100">
-        <p class="lead" v-html="$page.wordPressPage.content"></p>
+        <p class="lead">I’m a web developer, a self-proclaimed introvert and a *NIX enthusiast.</p>
         <b-dropdown split text="Follow Me" class="social-links">
           <b-dropdown-item v-for="{ social, index } in $page.wordPressPage.acf.socialMedia" :key="index" :href="social.url" target="_blank">
             {{ social.name }}
