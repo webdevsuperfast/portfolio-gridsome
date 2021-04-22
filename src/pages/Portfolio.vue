@@ -38,7 +38,7 @@
                 :src="node.featuredMedia.thumbnail"
               />
               <figcaption class="portfolio-content">
-                <h4 class="mb-0">{{ node.title }}</h4>
+                <h4 class="mb-0" v-html="node.title" />
               </figcaption>
               <transition name="slideLeft">
                 <div class="portfolio-image-overlay sidebar" v-show="node.id == selectedPortfolio">
@@ -72,7 +72,7 @@
 
 <page-query>
 {
-  allWordPressPortfolioCategory {
+  allWordPressPortfolioCategory(sortBy: "title", order: ASC) {
     edges {
       node {
         id,
@@ -81,7 +81,7 @@
       }
     }
   },
-  allWordPressPortfolio {
+  allWordPressPortfolio(sortBy: "slug", order: ASC) {
     edges {
       node {
         id,
