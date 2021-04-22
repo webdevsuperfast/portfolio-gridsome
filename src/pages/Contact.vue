@@ -116,8 +116,6 @@ import Main from "@/layouts/Main";
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
-const httpServer = process.env.NODE_ENV === 'production' ? 'https://cdn.rotsenacob.com' : 'https://rotsenacob.ddev.site'
-
 export default {
   mixins: [validationMixin],
   metaInfo: {
@@ -171,7 +169,7 @@ export default {
       } else {
         this.submitStatus = "PENDING";
         setTimeout(() => {
-          fetch(httpServer + '/wp-json/contact-form-7/v1/contact-forms/3/feedback', {
+          fetch( 'https://cdn.rotsenacob.com/wp-json/contact-form-7/v1/contact-forms/3/feedback', {
             method: "POST",
             headers: { 
               "Content-Type": "application/x-www-form-urlencoded",
