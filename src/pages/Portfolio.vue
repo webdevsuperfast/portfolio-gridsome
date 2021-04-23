@@ -36,17 +36,18 @@
               <g-image
                 class="img-fluid portfolio-image mb-2"
                 :src="node.featuredMedia.thumbnail"
+                position="top"
               />
               <figcaption class="portfolio-content">
                 <h4 class="mb-0" v-html="node.title" />
               </figcaption>
               <transition name="slideLeft">
                 <div class="portfolio-image-overlay sidebar" v-show="node.id == selectedPortfolio">
-                  <b-img-lazy :src="node.featuredMedia.fullImage.src" />
+                  <b-img-lazy :src="node.featuredMedia.fullImage.src" :alt="node.title" />
                   <div class="portfolio-information d-flex flex-column flex-md-row justify-content-between">
                     <div class="portfolio-name mb-0 text-uppercase" v-html="node.title" />
                     <div class="portfolio-link mb-0 text-uppercase text-light">
-                      <g-link  v-if="node.acf.website" :href="node.acf.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
+                      <b-button  v-if="node.acf.website" :href="node.acf.website" target="_blank" size="sm" variant="primary">Visit Site</b-button>
                     </div>
                   </div>
                   <b-button
