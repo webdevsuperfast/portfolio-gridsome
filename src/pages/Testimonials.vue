@@ -10,7 +10,7 @@
         >
           <b-media :right-align="index % 2 ? true : false" class="testimonial-image">
             <template v-slot:aside>
-              <b-img class="img-fluid portfolio-image" rounded="circle" :src="node.featuredMedia.thumbnail" width="100" height="100" />
+              <b-img-lazy class="img-fluid portfolio-image" rounded="circle" :src="node.featuredMedia.thumbnail.src" />
             </template>
             <div class="testimonial-content mb-2">
               <blockquote v-html="node.content" class="mb-0"></blockquote>
