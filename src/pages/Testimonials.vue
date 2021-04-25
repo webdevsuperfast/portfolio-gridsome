@@ -6,11 +6,11 @@
         <div
           v-for="({ node }, index)  in $page.allWordPressTestimonial.edges"
           :key="index"
-          :class="['testimonial', `testimonial-${node.id}`]"
+          :class="['testimonial', `testimonial-${node.id}`, index % 2 ? 'right-image' : 'left-image']"
         >
           <b-media :right-align="index % 2 ? true : false" class="testimonial-image">
             <template v-slot:aside>
-              <g-image class="img-fluid portfolio-image" :src="node.featuredMedia.thumbnail" width="100" height="100" />
+              <b-img class="img-fluid portfolio-image" rounded="circle" :src="node.featuredMedia.thumbnail" width="100" height="100" />
             </template>
             <div class="testimonial-content mb-2">
               <blockquote v-html="node.content" class="mb-0"></blockquote>
