@@ -9,7 +9,7 @@ $warning:#5f5f5f !default;
 $light:#eceeec !default;
 $dark:#111111 !default;
 
-$border-radius: 0;
+$border-radius: 8px;
 $border-radius-lg: $border-radius;
 
 $grid-gutter-width: 20px;
@@ -18,7 +18,7 @@ $grid-gutter-width: 20px;
 // $font-size-base: 0.625rem;
 
 // Buttons
-$btn-border-radius: 0;
+$btn-border-radius: $border-radius;
 $btn-padding-y: px-to-rem(10px);
 $btn-padding-x: px-to-rem(20px);
 $btn-font-size: px-to-rem(21px);
