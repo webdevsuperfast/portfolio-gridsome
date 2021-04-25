@@ -1,17 +1,18 @@
 // Hamburger Icon Animation
 // @link https://codepen.io/RRoberts/pen/ZBYaJr
 .hamburger .icon-bar {
-  width: 50px;
-  height: 5px;
+  width: 40px;
+  height: 4px;
   background-color: $light;
+  border-radius: 2px;
   display: block;
   margin: 8px auto;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   &:nth-of-type(2) {
-    width: 30px;
-    margin-left: 0;
+    width: 25px;
+    margin: 0 auto;
   }
 }
 
