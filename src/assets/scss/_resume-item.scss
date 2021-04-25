@@ -409,22 +409,17 @@ section.resume-section {
       .icon-bar {
         &:nth-of-type(2) {
           opacity: 1;
-          width: 50px;
+          width: 35px;
+          margin: 0;
         }
         &:nth-of-type(1), &:nth-of-type(3) {
-          width: 40px;
+          width: 25px;
         }
         &:nth-of-type(1) {
-          -webkit-transform: translateX(-10px) rotate(-45deg);
-          -ms-transform: translateX(-10px) rotate(-45deg);
-          -o-transform: translateX(-10px) rotate(-45deg);
-          transform: translateX(-10px) rotate(-45deg);
+          transform: translateX(-12px) translateY(4px) rotate(-45deg);
         }
         &:nth-of-type(3) {
-          -webkit-transform: translateX(-10px) rotate(45deg);
-          -ms-transform: translateX(-10px) rotate(45deg);
-          -o-transform: translateX(-10px) rotate(45deg);
-          transform: translateX(-10px) rotate(45deg);
+          transform: translateX(-12px) translateY(-4px) rotate(45deg);
         }
       }
     }
@@ -444,17 +439,17 @@ section.resume-section {
   }
   
   .icon-bar:nth-child(1) {
-    -webkit-transform: translateY(13px) rotate(45deg);
-    -ms-transform: translateY(13px) rotate(45deg);
-    -o-transform: translateY(13px) rotate(45deg);
-    transform: translateY(13px) rotate(45deg);
+    -webkit-transform: translateY(12px) rotate(45deg);
+    -ms-transform: translateY(12px) rotate(45deg);
+    -o-transform: translateY(12px) rotate(45deg);
+    transform: translateY(12px) rotate(45deg);
   }
   
   .icon-bar:nth-child(3) {
-    -webkit-transform: translateY(-13px) rotate(-45deg);
-    -ms-transform: translateY(-13px) rotate(-45deg);
-    -o-transform: translateY(-13px) rotate(-45deg);
-    transform: translateY(-13px) rotate(-45deg);
+    -webkit-transform: translateY(-12px) rotate(-45deg);
+    -ms-transform: translateY(-12px) rotate(-45deg);
+    -o-transform: translateY(-12px) rotate(-45deg);
+    transform: translateY(-12px) rotate(-45deg);
   }
 }
 
