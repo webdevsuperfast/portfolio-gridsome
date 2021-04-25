@@ -229,16 +229,34 @@ section.resume-section {
     position: relative;
     padding: 30px;
     background: $light;
+    border-radius: $border-radius;
     &::before {
-      content: "\201C";
+      content: '';
       display: block;
       position: absolute;
-      left: 0;
-      top: -15px;
-      color: rgba($primary, 0.25);
-      font-size: px-to-rem(72px);
-      line-height: px-to-rem(72px);
-      font-weight: 900;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  }
+  &.left-image {
+    .testimonial-content {
+      &:before {
+        border-width: 10px 10px 10px 0;
+        border-color: transparent $light transparent transparent;
+        left: -10px;
+        top: 15px;
+      }
+    }
+  }
+  &.right-image {
+    .testimonial-content {
+      &::before {
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent $light;
+        right: -10px;
+        top: 15px;
+      }
     }
   }
   .testimonial-title {
