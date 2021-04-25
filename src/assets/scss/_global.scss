@@ -17,7 +17,7 @@ h6 {
 }
 
 h1 {
-  font-size: px-to-rem(32px);
+  font-size: px-to-rem(36px);
   @include media-breakpoint-up(xl){
     font-size: px-to-rem(72px);
     line-height: px-to-rem(84px);
