@@ -1,5 +1,5 @@
 {
-  "name": "mydevhouse-vue",
+  "name": "portfolio-gridsome",
   "private": true,
   "scripts": {
     "build": "gridsome build",
@@ -16,8 +16,6 @@
     "gh-pages": "^3.1.0",
     "gridsome": "^0.7.23",
     "gridsome-plugin-robots-txt": "^1.0.2",
-    "typeface-cabin": "^1.1.13",
-    "typeface-roboto-condensed": "^1.1.13",
     "vue-star-rating": "^1.7.0",
     "vue2-animate": "^2.1.4",
     "vuelidate": "^0.7.6"
