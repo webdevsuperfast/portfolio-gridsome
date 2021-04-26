@@ -180,18 +180,6 @@ section.resume-section {
       padding: 10px;
       background: rgba($light, 0.25);
       align-items: center;
-      .portfolio-link {
-        a {
-          display: flex;
-          align-items: center;
-          color: #eceeec;
-          transition: color .2s ease-in-out;
-          justify-content: center;
-          &:hover {
-            color: $secondary;
-          }
-        }
-      }
     }
   }
 }
