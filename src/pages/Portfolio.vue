@@ -105,7 +105,6 @@
 </page-query>
 
 <script>
-import { ArrowRightIcon } from 'vue-feather-icons';
 import Aside from "@/layouts/Aside";
 import Main from "@/layouts/Main";
 
@@ -123,8 +122,7 @@ export default {
   },
   components: {
     Aside,
-    Main,
-    ArrowRightIcon
+    Main
   },
   computed: {
     filterPortfolio: function() {
