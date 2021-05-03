@@ -211,7 +211,6 @@ section.resume-section {
 .testimonial {
   font-size: px-to-rem(16px);
   line-height: px-to-rem(21px);
-  font-weight: 300;
   margin-bottom: px-to-rem(60px);
   .testimonial-content {
     position: relative;
@@ -233,7 +232,7 @@ section.resume-section {
         border-width: 10px 10px 10px 0;
         border-color: transparent $light transparent transparent;
         left: -10px;
-        top: 15px;
+        top: 30px;
       }
     }
   }
@@ -243,7 +242,7 @@ section.resume-section {
         border-width: 10px 0 10px 10px;
         border-color: transparent transparent transparent $light;
         right: -10px;
-        top: 15px;
+        top: 30px;
       }
     }
   }
@@ -254,7 +253,6 @@ section.resume-section {
     text-transform: uppercase;
     font-size: px-to-rem(14px);
     line-height: px-to-rem(16px);
-    font-weight: 300;
     color: $secondary;
     margin-bottom: 0;
   }
