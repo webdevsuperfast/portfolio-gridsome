@@ -10,6 +10,8 @@
             </p>
           </b-col>
         </b-row>
+      </div>
+      <div class="w-100">
         <h2 class="section-title" v-html="$page.tools.title" />
         <b-row class="skill-section row mb-5">
           <b-col v-for="{ ability, index } in $page.tools.acf.abilities" :key="index" cols="12" sm="6">

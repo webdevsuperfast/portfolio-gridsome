@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Navigation />
-    <transition name="fade">
-      <router-view />
+    <transition enter-active-class="animated fadeLeft" leave-active-class="animated fadeRight">
+      <router-view appear />
     </transition>
   </div>
 </template>

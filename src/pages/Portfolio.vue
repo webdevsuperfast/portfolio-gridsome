@@ -36,17 +36,18 @@
               <g-image
                 class="img-fluid portfolio-image mb-2"
                 :src="node.featuredMedia.thumbnail"
+                position="top"
               />
               <figcaption class="portfolio-content">
                 <h4 class="mb-0" v-html="node.title" />
               </figcaption>
               <transition name="slideLeft">
                 <div class="portfolio-image-overlay sidebar" v-show="node.id == selectedPortfolio">
-                  <g-image :src="node.featuredMedia.fullImage" />
+                  <b-img-lazy :src="node.featuredMedia.fullImage.src" :alt="node.title" />
                   <div class="portfolio-information d-flex flex-column flex-md-row justify-content-between">
-                    <div class="portfolio-name mb-0 text-uppercase">{{ node.title }}</div>
+                    <div class="portfolio-name mb-0 text-uppercase" v-html="node.title" />
                     <div class="portfolio-link mb-0 text-uppercase text-light">
-                      <g-link  v-if="node.website" :href="node.website" target="_blank">Visit Site <arrow-right-icon class="ml-2" size="1x" /></g-link>
+                      <b-button  v-if="node.acf.website" :href="node.acf.website" target="_blank" size="sm" variant="primary">Visit Site</b-button>
                     </div>
                   </div>
                   <b-button
@@ -92,6 +93,10 @@
 				featuredMedia {
           thumbnail: downloadedImages(width: 250, height: 250),
           fullImage: downloadedImages
+        },
+        acf {
+          client: clientName,
+          website: clientWebsite
         }
       }
     }
@@ -100,7 +105,6 @@
 </page-query>
 
 <script>
-import { ArrowRightIcon } from 'vue-feather-icons';
 import Aside from "@/layouts/Aside";
 import Main from "@/layouts/Main";
 
@@ -118,8 +122,7 @@ export default {
   },
   components: {
     Aside,
-    Main,
-    ArrowRightIcon
+    Main
   },
   computed: {
     filterPortfolio: function() {
