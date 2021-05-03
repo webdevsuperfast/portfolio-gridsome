@@ -30,6 +30,10 @@ export default function (Vue, { router, head, isClient }) {
       .replace(/-+$/, '');            // Trim - from end of text
   })
 
+  Vue.filter( 'stringify', (value) => {
+    return value
+  } )
+
   Vue.filter('rating', (value) => {
     if (!value) {
       value = 0;

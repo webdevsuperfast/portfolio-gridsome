@@ -1,5 +1,5 @@
 {
-  "name": "mydevhouse-vue",
+  "name": "portfolio-gridsome",
   "private": true,
   "scripts": {
     "build": "gridsome build",
@@ -21,9 +21,12 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
-    "sass": "^1.32.10",
+    "sass": "^1.32.11",
     "sass-loader": "^10.1.1",
     "vue-feather-icons": "^5.1.0",
     "vue-svg-loader": "^0.16.0"
+  },
+  "resolutions": {
+    "sharp": "^0.24.0"
   }
 }

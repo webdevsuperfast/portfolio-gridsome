@@ -15,7 +15,7 @@ module.exports = {
         baseUrl: process.env.NODE_ENV === 'production' ? 'https://cdn.rotsenacob.com' : 'https://rotsenacob.ddev.site',
         apiBase: 'wp-json',
         typeName: 'WordPress',
-        perPage: 50,
+        perPage: 100,
         concurrent: 10
       }
     },

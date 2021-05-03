@@ -1,6 +1,6 @@
 # Introduction
 
-JAMStack implementation of my portfolio using Gridsome and REST API.
+JAMStack implementation of my portfolio using Gridsome and GraphQL using WordPress REST API.
 
 ## Building from Source
 
@@ -16,9 +16,9 @@ JAMStack implementation of my portfolio using Gridsome and REST API.
 
 ## Features
 
-1. Built with Gridsome, Bootstrap Vue and Feather Icons.
+1. Built with Gridsome, Bootstrap Vue and WordPress REST API.
 2. No jQuery dependency.
-3. Pull data from Heroku using REST API, via Fake JSON Server.
+3. Pull data from WordPress REST API using GraphQL.
 
 ## Todos
 
@@ -30,5 +30,3 @@ JAMStack implementation of my portfolio using Gridsome and REST API.
 * [Gridsome](https://gridsome.org)
 * [StartBootstrap Resume](https://github.com/BlackrockDigital/startbootstrap-resume)
 * [Bootstrap Vue](https://bootstrap-vue.js.org/)
-* [Vue Feather Icons](https://github.com/egoist/vue-feather-icons)
-* [JSON Server](https://github.com/typicode/json-server)

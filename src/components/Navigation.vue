@@ -1,8 +1,14 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" class="bg-primary fixed-top" id="sideNav">
-    <Brand />
-    <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
-    <b-collapse id="navbarSupportedContent" is-nav>
+  <b-navbar
+    toggleable="lg"
+    type="dark"
+    class="fixed-top bg-primary"
+    id="sideNav"
+  >
+    <b-navbar-brand to="/">
+    </b-navbar-brand>
+    <b-navbar-toggle target="navbarSupportedContent" />
+    <b-collapse id="navbarSupportedContent" is-nav v-model="visible">
       <b-navbar-nav v-b-scrollspy>
         <b-nav-item
           v-for="(navigation, index) in navigationList"

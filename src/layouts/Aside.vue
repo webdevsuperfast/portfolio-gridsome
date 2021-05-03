@@ -5,11 +5,7 @@
 </template>
 
 <script>
-
 export default {
-  props: [
-    'sidebar',
-    'title'
-  ]
+  
 }
 </script>
