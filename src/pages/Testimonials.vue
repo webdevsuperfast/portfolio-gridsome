@@ -8,17 +8,15 @@
           :key="index"
           :class="['testimonial', `testimonial-${node.id}`, index % 2 ? 'right-image' : 'left-image']"
         >
-          <b-media :right-align="index % 2 ? true : false" class="testimonial-image">
+          <div class="testimonial-content mb-3">
+            <blockquote v-html="node.content" class="mb-0"></blockquote>
+          </div>
+          <b-media :right-align="index % 2 ? true : false" :class="index % 2 ? 'text-right': 'text-left'" vertical-align="center">
             <template v-slot:aside>
               <b-img-lazy class="img-fluid portfolio-image" rounded="circle" :src="node.featuredMedia.thumbnail.src" />
             </template>
-            <div class="testimonial-content mb-2">
-              <blockquote v-html="node.content" class="mb-0"></blockquote>
-            </div>
-            <div class="author-information">
-              <h4 class="testimonial-title mb-0">{{ node.title }}</h4>
-              <p class="small text-secondary">{{ node.acf.location }}</p>
-            </div>
+            <h4 class="testimonial-title mb-0">{{ node.title }}</h4>
+            <p class="small text-secondary mb-0">{{ node.acf.location }}</p>
           </b-media>
         </div>
       </div>
@@ -40,7 +38,7 @@
           location: testimonialLocation
         },
         featuredMedia {
-          thumbnail: downloadedImages(width: 80, height: 80)
+          thumbnail: downloadedImages(width: 50, height: 50)
         }
       }
     }
