@@ -26,7 +26,7 @@
 
 <page-query>
 {
-  allWordPressTestimonial {
+  allWordPressTestimonial(sortBy: "title", order: ASC) {
     edges {
       node {
         id,
