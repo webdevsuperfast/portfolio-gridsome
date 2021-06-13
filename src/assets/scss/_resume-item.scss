@@ -89,57 +89,6 @@ section.resume-section {
   }
 }
 
-// Single Member Profile
-.member-profile {
-  color: $light;
-  background: $primary;
-  padding: px-to-rem(60px);
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  z-index: 9999;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  @include media-breakpoint-up(md) {
-    width: 50vw;
-  }
-  h3 {
-    text-transform: unset;
-    @include pixel-rem(36, 30);
-    color: $light;
-  }
-  p {
-    font-size: px-to-rem(21px);
-    line-height: px-to-rem(25px);
-    margin-bottom: px-to-rem(30px);
-  }
-
-  h4 {
-    font-size: px-to-rem(24px);
-    line-height: px-to-rem(28px);
-    margin-bottom: px-to-rem(30px);
-  }
-
-  h5 {
-    font-size: px-to-rem(14px);
-    line-height: 1;
-  }
-
-  .profile-close {
-    padding: px-to-rem(5px);
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    right: -60px;
-    top: 0px;
-    background: $primary;
-  }
-}
-
 // Portfolio
 #section-portfolio {
   flex-direction: column;
@@ -414,6 +363,48 @@ section.resume-section {
     -ms-transform: translateY(-12px) rotate(-45deg);
     -o-transform: translateY(-12px) rotate(-45deg);
     transform: translateY(-12px) rotate(-45deg);
+  }
+}
+
+// Experience Section
+#section-experience {
+  .resume-item {
+    background: lighten($light, 0.5);
+    .resume-data {
+      h4 {
+        padding: 0.5em 0.5em;
+        background: $info;
+        color: $light;
+      }
+      .resume-date {
+        padding: 0.1em 0.5em;
+        background: $secondary;
+        color: $light;
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .summary-list {
+      padding: 1em 0 1em;
+      border-left: 1px solid $primary;
+      li {
+        padding-left: 1.25em;
+        position: relative;
+        &::before {
+          content: '';
+          width: 1em;
+          position: absolute;
+          left: 0;
+          top: 12px;
+          height: 1px;
+          background: $primary;
+        }
+        &::after {
+          content: '';
+        }
+      }
+    }
   }
 }
 
