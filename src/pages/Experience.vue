@@ -3,18 +3,16 @@
     <Main :sectionID="pageTitle | slugify" :sectionClass="pageTitle | slugify">
       <div class="w-100">
         <div
-          class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5"
-          v-for="({node}, index) in $page.allWordPressExperience.edges"
-          :key="index"
+          class="resume-item mb-5"
+          v-for="{ node } in $page.allWordPressExperience.edges"
+          :key="node.id"
         >
           <div class="resume-content">
             <b-media class="resume-image">
               <div class="resume-data">
                 <h4 class="mb-0">{{ node.acf.position }}, <span class="text-muted">{{ node.acf.company }}</span></h4>
                 <div class="resume-date mb-0">
-                  <p
-                    class="text-muted"
-                  >{{ node.acf.dates.start }} - {{ node.acf.dates.end }}</p>
+                  <p class="mb-0">{{ node.acf.dates.start }} - {{ node.acf.dates.end }}</p>
                 </div>
               </div>
             </b-media>
@@ -23,7 +21,6 @@
                 v-for="(summary, key) in node.acf.summary"
                 :key="key"
               >
-                <check-circle-icon size="1x" class="mr-1" />
                 {{ summary.list }}
               </li>
             </ul>
@@ -35,7 +32,7 @@
 </template>
 
 <page-query>
-query Experience {
+{
   allWordPressExperience {
     edges {
       node {
@@ -59,11 +56,6 @@ query Experience {
 </page-query>
 
 <script>
-import {
-  CheckCircleIcon,
-  CalendarIcon
-} from "vue-feather-icons";
-
 import Main from "@/layouts/Main";
 
 export default {
@@ -76,9 +68,7 @@ export default {
     };
   },
   components: {
-    Main,
-    CheckCircleIcon,
-    CalendarIcon
+    Main
   }
 };
 </script>
