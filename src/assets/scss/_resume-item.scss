@@ -387,22 +387,8 @@ section.resume-section {
     }
     .summary-list {
       padding: 1em 0 1em;
-      border-left: 1px solid $primary;
       li {
-        padding-left: 1.25em;
-        position: relative;
-        &::before {
-          content: '';
-          width: 1em;
-          position: absolute;
-          left: 0;
-          top: 12px;
-          height: 1px;
-          background: $primary;
-        }
-        &::after {
-          content: '';
-        }
+        padding: 0 0.5em;
       }
     }
   }
