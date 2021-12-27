@@ -403,6 +403,15 @@ section.resume-section {
       margin-bottom: 30px;
     }
   }
+  div {
+    &.lead {
+      p {
+        @include pixel-rem(36, 42);
+        margin-bottom: 30px;
+        font-weight: normal;
+      }
+    }
+  }
   .social-links {
     margin-bottom: 10px;
     @include media-breakpoint-up(sm) {
