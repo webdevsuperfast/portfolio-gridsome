@@ -7,7 +7,7 @@
 module.exports = {
   siteName: 'Rotsen Mark Acob',
   siteDescription: 'Web Developer, Frontend Developer and Freelancer',
-  siteUrl: 'https://rotsenacob.com',
+  siteUrl: process.env.NODE_ENV === 'production' ? 'https://rotsenacob.com' : 'https://rotsenacob.ddev.site',
   plugins: [
     {
       use: '@gridsome/source-wordpress',
