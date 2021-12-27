@@ -53,14 +53,6 @@
 </page-query>
 
 <script>
-import {
-  ListIcon,
-  CodeIcon,
-  SearchIcon,
-  TerminalIcon,
-  SettingsIcon
-} from "vue-feather-icons";
-
 import StarRating from "vue-star-rating/src";
 
 import Main from "@/layouts/Main";
