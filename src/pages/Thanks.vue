@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import Main from "@/layouts/Main";
-
 export default {
   metaInfo: {
     title: "Thank You"
@@ -23,15 +21,7 @@ export default {
     }
   },
   components: {
-    Main
+    
   }
 }
 </script>
-
-<style lang="scss" scoped>
-section {
-  &.resume-section {
-    flex-direction: row;
-  }
-}
-</style>

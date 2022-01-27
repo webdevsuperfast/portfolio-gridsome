@@ -1,22 +1,17 @@
 <template>
-  <div class="site-inner">
-    <div id="sideNav" class="p-0 container-fluid" v-if="sidebar">
-      <Sidebar :title="title" />
-    </div>
+  <main class="site-content text-gray-100">
     <slot />
-  </div>
+  </main>
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar";
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 export default {
   components: {
-    Sidebar
-  },
-  props: [
-    'sidebar',
-    'title'
-  ]
+    Navigation,
+    Footer
+  }
 }
 </script>

@@ -1,17 +1,19 @@
 <template>
   <div class="site-container" id="app">
     <Navigation />
-    <transition enter-active-class="animated fadeLeft" leave-active-class="animated fadeRight">
-      <router-view appear />
-    </transition>
+    <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+
 export default {
   components: {
-    Navigation
+    Navigation,
+    Footer
   }
 }
 </script>

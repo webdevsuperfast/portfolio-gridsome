@@ -1,8 +1,8 @@
-// This is where project configuration and plugin options are located. 
-// Learn more: https://gridsome.org/docs/config
+const tailwindcss = require('tailwindcss')
 
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
+const postcssPlugins = [
+  tailwindcss()
+] 
 
 module.exports = {
   siteName: 'Rotsen Mark Acob',
@@ -30,6 +30,13 @@ module.exports = {
       }
     }
   ],
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: postcssPlugins
+      }
+    }
+  },
   chainWebpack: config => {
     const svgRule = config.module.rule('svg')
     svgRule.uses.clear()

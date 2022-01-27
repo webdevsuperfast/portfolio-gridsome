@@ -1,16 +1,22 @@
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-import BootstrapVue from 'bootstrap-vue'
+
+// Import Fonts
+require('typeface-barlow')
+require('typeface-barlow-condensed')
 
 // Import Global SCSS File
-import '~/assets/scss/resume.scss'
+require('~/main.css')
 
 // Import Global Default Layout
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function (Vue, { router, head, isClient }) {
-  // Bootstrap Vue
-  Vue.use(BootstrapVue)
+  // Add attributes to body
+  head.bodyAttrs = {
+    class: 'bg-body bg-fixed bg-no-repeat bg-cover',
+  }
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 

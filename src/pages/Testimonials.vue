@@ -1,26 +1,29 @@
 <template>
-  <Layout sidebar="true" :title="pageTitle">
-    <Main :sectionClass="pageTitle | slugify" :sectionID="pageTitle | slugify">
-      <div class="w-100">
-        <h2>What Clients Say About Me</h2>
-        <div
-          v-for="({ node }, index)  in $page.allWordPressTestimonial.edges"
-          :key="index"
-          :class="['testimonial', `testimonial-${node.id}`, index % 2 ? 'right-image' : 'left-image']"
-        >
-          <div class="testimonial-content mb-3">
-            <blockquote v-html="node.content" class="mb-0"></blockquote>
-          </div>
-          <b-media :right-align="index % 2 ? true : false" :class="index % 2 ? 'text-right': 'text-left'" vertical-align="center">
-            <template v-slot:aside>
-              <b-img-lazy class="img-fluid portfolio-image" rounded="circle" :src="node.featuredMedia.thumbnail.src" />
-            </template>
-            <h4 class="testimonial-title mb-0">{{ node.title }}</h4>
-            <p class="small text-secondary mb-0">{{ node.acf.location }}</p>
-          </b-media>
+  <Layout>
+    <section class="flex w-full items-center min-h-screen py-36">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="filter-container relative grid grid-cols-2 place-content-between items-center py-10">
+          <h1 class="section-title text-4xl sm:text-6xl">Testimonials</h1>
+        </div>
+        
+        <div class="testimonials grid grid-cols-none sm:grid-cols-2 lg:grid-cols-3 gap-14 gap-y-14">
+            <div 
+              class="testimonial w-100 flex flex-col space-between"
+              v-for="( { node }, index ) in $page.allWordPressTestimonial.edges"
+              :key="index">
+              <blockquote class="grow rounded-2xl p-8 bg-gray-100 text-gray-900 rounded-br-none block text-xl mb-6" v-html="node.content">
+              </blockquote>
+              <div class="flex items-center content-end text-right flex-row-reverse">
+                <g-image :src="node.featuredMedia.thumbnail.src" width="150" height="150" class="w-10 h-10 rounded-full ml-4 lazy"  :alt="node.title" />
+                <div class="text-sm">
+                  <p class="font-medium">{{ node.title }}</p>
+                  <p class="text-xs">{{ node.acf.location }}</p>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
-    </Main>
+    </section>
   </Layout>
 </template>
 
@@ -47,8 +50,6 @@
 </page-query>
 
 <script>
-import Main from "@/layouts/Main";
-
 export default {
   data() {
     return {
@@ -59,7 +60,7 @@ export default {
     title: "Testimonials"
   },
   components: {
-    Main
+    
   }
 };
 </script>
