@@ -1,7 +1,5 @@
 <template>
-  <Layout>
-    
-  </Layout>
+  <Layout> </Layout>
 </template>
 
 <page-query>
@@ -21,14 +19,14 @@
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
+const { CF7_API_URL } = require("./../../env");
+
 export default {
   mixins: [validationMixin],
   metaInfo: {
-    title: "Contact Us"
+    title: "Contact Us",
   },
-  components: {
-    
-  },
+  components: {},
   data() {
     return {
       form: {
@@ -36,34 +34,34 @@ export default {
         fmail: "",
         fservice: null,
         fwebsite: "",
-        fmessage: ""
+        fmessage: "",
       },
       submitStatus: null,
-      pageTitle: "Contact"
+      pageTitle: "Contact",
     };
   },
   validations: {
     form: {
       fname: {
         required,
-        minLength: minLength(2)
+        minLength: minLength(2),
       },
       fmail: {
         required,
-        email
+        email,
       },
       fservice: {},
       fwebsite: {},
       fmessage: {
-        required
-      }
-    }
+        required,
+      },
+    },
   },
   methods: {
     encode: function(data) {
       return Object.keys(data)
         .map(
-          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
         )
         .join("&");
     },
@@ -74,27 +72,27 @@ export default {
       } else {
         this.submitStatus = "PENDING";
         setTimeout(() => {
-          fetch( 'https://cdn.rotsenacob.com/wp-json/contact-form-7/v1/contact-forms/3/feedback', {
+          fetch(CF7_API_URL, {
             method: "POST",
-            headers: { 
+            headers: {
               "Content-Type": "application/x-www-form-urlencoded",
-              "Accept": "application/json"
+              Accept: "application/json",
             },
             body: this.encode({
               "form-name": "contact",
-              ...this.form
-            })
+              ...this.form,
+            }),
           })
             .then(() => {
               this.submitStatus = "OK";
               this.$router.push("/thanks");
             })
-            .catch(error => {
+            .catch((error) => {
               this.submitStatus = "ERROR";
             });
         }, 500);
       }
-    }
-  }
+    },
+  },
 };
 </script>
