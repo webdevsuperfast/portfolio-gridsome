@@ -1,26 +1,41 @@
 <template>
   <Layout>
-    <section class="flex w-full items-center min-h-screen py-36">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="filter-container relative grid grid-cols-2 place-content-between items-center py-10">
-          <h1 class="section-title text-4xl sm:text-6xl">Testimonials</h1>
+    <section class="flex items-center w-full min-h-screen py-36">
+      <div class="container px-4 mx-auto sm:px-6 lg:px-8">
+        <div
+          class="relative grid items-center grid-cols-2 py-10 filter-container place-content-between"
+        >
+          <h1 class="text-4xl section-title sm:text-6xl">Testimonials</h1>
         </div>
-        
-        <div class="testimonials grid grid-cols-none sm:grid-cols-2 lg:grid-cols-3 gap-14 gap-y-14">
-            <div 
-              class="testimonial w-100 flex flex-col space-between"
-              v-for="( { node }, index ) in $page.allWordPressTestimonial.edges"
-              :key="index">
-              <blockquote class="grow rounded-2xl p-8 bg-gray-100 text-gray-900 rounded-br-none block text-xl mb-6" v-html="node.content">
-              </blockquote>
-              <div class="flex items-center content-end text-right flex-row-reverse">
-                <g-image :src="node.featuredMedia.thumbnail.src" width="150" height="150" class="w-10 h-10 rounded-full ml-4 lazy"  :alt="node.title" />
-                <div class="text-sm">
-                  <p class="font-medium">{{ node.title }}</p>
-                  <p class="text-xs">{{ node.acf.location }}</p>
-                </div>
+
+        <div
+          class="grid grid-cols-none testimonials sm:grid-cols-2 lg:grid-cols-3 gap-14 gap-y-14"
+        >
+          <div
+            class="flex flex-col testimonial w-100 space-between"
+            v-for="({ node }, index) in $page.allWordPressTestimonial.edges"
+            :key="index"
+          >
+            <blockquote
+              class="block p-8 mb-6 text-xl text-gray-900 bg-gray-100 rounded-br-none grow rounded-2xl"
+              v-html="node.content"
+            ></blockquote>
+            <div
+              class="flex flex-row-reverse items-center content-end text-right"
+            >
+              <g-image
+                :src="node.featuredMedia.thumbnail.src"
+                width="150"
+                height="150"
+                class="w-10 h-10 ml-4 rounded-full lazy"
+                :alt="node.title"
+              />
+              <div class="text-sm">
+                <p class="font-medium">{{ node.title }}</p>
+                <p class="text-xs">{{ node.acf.location }}</p>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -53,14 +68,12 @@
 export default {
   data() {
     return {
-      pageTitle: 'Testimonial'
-    }
+      pageTitle: "Testimonial",
+    };
   },
   metaInfo: {
-    title: "Testimonials"
+    title: "Testimonials",
   },
-  components: {
-    
-  }
+  components: {},
 };
 </script>
